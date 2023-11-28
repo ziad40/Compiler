@@ -4,23 +4,23 @@ class node
 {
     
 public:
-    char transation;
+    vector<char> transation;
     vector<node*> next_nodes;
-    bool empty;
-    node(char transation){
-        this->transation = transation;
-        empty = true;
+    int id;
+    node(vector<char> transation){
+        for(char x : transation){
+            this->transation.push_back(x);
+        }  
     }
 
-    node(char transation, vector<node*>& next_nodes){
-        this->transation = transation;
+    node(vector<char> transation, vector<node*>& next_nodes){
+        for(char x : transation){
+            this->transation.push_back(x);
+        } 
         this->next_nodes = next_nodes;
-        empty = true;
     }
 
-    node(){
-        empty = true;
-    }
+    node(){}
 
     void add_next_node(node& new_node){
         node n = node(new_node.transation, new_node.next_nodes);
