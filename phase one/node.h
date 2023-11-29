@@ -1,25 +1,16 @@
 #include <vector>
+#include <map>
 using namespace std;
 class node
 {
     
 public:
-    vector<char> transations;
-    vector<node*> next_nodes;
+    map<char, vector<node*>> transitions;
+    vector<node*> epsilon_transitions;
     int id;
     bool acceptance;
-    node(vector<char> transation){
-        for(char x : transation){
-            this->transations.push_back(x);
-        }
-        acceptance = false;  
-    }
-
-    node(vector<char> transation, vector<node*>& next_nodes){
-        for(char x : transation){
-            this->transations.push_back(x);
-        } 
-        this->next_nodes = next_nodes;
+    node(map<char, vector<node*>> transitions){
+        this-> transitions = transitions;
         acceptance = false;  
     }
 
@@ -32,9 +23,12 @@ public:
         acceptance = false;  
     }
 
-    void add_next_node(node& new_node){
-        node n = node(new_node.transations, new_node.next_nodes);
-        next_nodes.push_back(&n);
+    void add_next_node(node* new_node){
+        epsilon_transitions.push_back(new_node);
+    }
+
+    void add_next_node(char c, node* new_node){
+        transitions[c].push_back(new_node);
     }
 };
 

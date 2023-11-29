@@ -19,7 +19,7 @@ NFA concat_NFA(NFA& nfa1, NFA& nfa2){
     nfa1.end_node->acceptance = false;
     nfa2.end_node->acceptance = true;
 
-    nfa1.end_node->add_next_node(*nfa2.start_node);
+    nfa1.end_node->add_next_node(nfa2.start_node);
     NFA res(*nfa1.start_node, *nfa2.end_node);
     update_IDs(res);
     return res;
@@ -38,11 +38,11 @@ NFA star_NFA(NFA& nfa){
     nfa.end_node->acceptance = false;
     end.acceptance = true;
 
-    nfa.end_node->add_next_node(end);
-    nfa.end_node->add_next_node(*nfa.start_node);
+    nfa.end_node->add_next_node(&end);
+    nfa.end_node->add_next_node(nfa.start_node);
 
-    start.add_next_node(end);
-    start.add_next_node(*nfa.start_node);
+    start.add_next_node(&end);
+    start.add_next_node(nfa.start_node);
 
     NFA res(start, end);
     update_IDs(res);
@@ -62,12 +62,12 @@ NFA or_NFA(NFA& nfa1, NFA& nfa2){
         return ;
     }
     node start;
-    start.add_next_node(*nfa1.start_node);
-    start.add_next_node(*nfa2.start_node);
+    start.add_next_node(nfa1.start_node);
+    start.add_next_node(nfa2.start_node);
 
     node end;
-    nfa1.end_node->add_next_node(end);
-    nfa2.end_node->add_next_node(end);
+    nfa1.end_node->add_next_node(&end);
+    nfa2.end_node->add_next_node(&end);
 
     nfa1.end_node->acceptance = false;
     nfa2.end_node->acceptance = false;
@@ -78,6 +78,9 @@ NFA or_NFA(NFA& nfa1, NFA& nfa2){
 
     return res;
 }
+
+
+
 void update_IDs(NFA& nfa){
     set<node*> visited;
     stack<node*> not_visited;
@@ -91,7 +94,12 @@ void update_IDs(NFA& nfa){
             n->id = counter;
             counter++;
             visited.insert(n);
-            for(node* x : n->next_nodes){
+            for(auto it : n->transitions){
+                for(node* x : it.second){
+                    not_visited.push(x);
+                }
+            }
+            for(node* x : n->epsilon_transitions){
                 not_visited.push(x);
             }
         }
