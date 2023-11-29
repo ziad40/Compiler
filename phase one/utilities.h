@@ -92,6 +92,7 @@ void update_IDs(NFA& nfa){
 
         if(visited.find(n) == visited.end()){
             n->id = counter;
+            nfa.node_map[n->id] = n;
             counter++;
             visited.insert(n);
             for(auto it : n->transitions){
