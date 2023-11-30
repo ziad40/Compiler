@@ -1,10 +1,11 @@
-#include "node.h"
-#include "NFA.h"
+#include "node.cpp"
+#include "NFA.cpp"
 #include <cassert>
 #include <iostream>
 #include <set>
 #include<stack>
 
+using namespace std;
 
 NFA concat_NFA(NFA& nfa1, NFA& nfa2){
     if (nfa1.end_node == nullptr || nfa2.start_node == nullptr) {
@@ -33,8 +34,8 @@ NFA star_NFA(NFA& nfa){
         std::cerr << "Assertion failed: nfa.start_node != nullptr && nfa.end_node != nullptr\n";
         return ;
     }
-    node start;
-    node end;
+    Node start;
+    Node end;
     nfa.end_node->acceptance = false;
     end.acceptance = true;
 
@@ -61,11 +62,11 @@ NFA or_NFA(NFA& nfa1, NFA& nfa2){
         std::cerr << "Assertion failed: nfa1.end_node != nullptr && nfa2.end_node != nullptr\n";
         return ;
     }
-    node start;
+    Node start;
     start.add_next_node(nfa1.start_node);
     start.add_next_node(nfa2.start_node);
 
-    node end;
+    Node end;
     nfa1.end_node->add_next_node(&end);
     nfa2.end_node->add_next_node(&end);
 
@@ -82,12 +83,12 @@ NFA or_NFA(NFA& nfa1, NFA& nfa2){
 
 
 void update_IDs(NFA& nfa){
-    set<node*> visited;
-    stack<node*> not_visited;
+    set<Node*> visited;
+    stack<Node*> not_visited;
     not_visited.push(nfa.start_node);
     int counter = 0;
     while(!not_visited.empty()){
-        node* n = not_visited.top();
+        Node* n = not_visited.top();
         not_visited.pop();
 
         if(visited.find(n) == visited.end()){
@@ -96,11 +97,11 @@ void update_IDs(NFA& nfa){
             counter++;
             visited.insert(n);
             for(auto it : n->transitions){
-                for(node* x : it.second){
+                for(Node* x : it.second){
                     not_visited.push(x);
                 }
             }
-            for(node* x : n->epsilon_transitions){
+            for(Node* x : n->epsilon_transitions){
                 not_visited.push(x);
             }
         }
