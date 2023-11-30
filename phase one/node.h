@@ -7,7 +7,7 @@ class node
 public:
     map<char, vector<node*>> transitions;
     vector<node*> epsilon_transitions;
-    int id;
+    string id;
     bool acceptance;
     node(map<char, vector<node*>> transitions){
         this-> transitions = transitions;
@@ -18,7 +18,7 @@ public:
         acceptance = false;  
     }
 
-    node(int ID){
+    node(string ID){
         id = ID;
         acceptance = false;  
     }
