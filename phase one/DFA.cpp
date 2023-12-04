@@ -125,4 +125,33 @@ class DFA{
         }
         n->acceptance = false;
     }
+
+    void print_dfa(){
+        queue<Node*> queue;
+        set<string> visited;
+        queue.push(&DFA_start_node);
+        while(!queue.empty()){
+            Node* node = queue.front();
+            queue.pop();
+            if(visited.find(node->id) != visited.end())
+                continue;
+            visited.insert(node->id);
+            printf("\nState %s",node->id.c_str());
+            printf("\nTransactions\n");
+            for(auto &entry : node->transitions){
+                printf("\t%c -> ",entry.first);
+                for(Node* n : entry.second){
+                    printf("%s ",n->id.c_str());
+                    queue.push(n);
+                }
+            }
+            printf("\tepsilon -> ");
+            for(Node* n : node->epsilon_transitions){
+                printf("%s ",n->id.c_str());
+                queue.push(n);
+            }
+            printf("\n");
+        }
+
+    }
 };

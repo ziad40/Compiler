@@ -1,4 +1,3 @@
-#include <iostream>
 #include "node.cpp"
 #include "NFA.cpp"
 #include "DFA.cpp"
@@ -24,6 +23,6 @@ int main(){
     nfa.node_map["2"] = &q2;
     DFA dfa = DFA(&nfa);
     Node* res = dfa.convert_to_DFA();
-    std::cout << res->id;
+    dfa.print_dfa();
     return 0;
 }
