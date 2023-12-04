@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1701658421 source:/home/ahmed/Desktop/compilers/Compiler/DFAMinimizer/main.cpp
+	<iostream>
+	<vector>
+	<map>
+	<algorithm>
+
