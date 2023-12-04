@@ -10,19 +10,19 @@ using namespace std;
 NFA concat_NFA(NFA& nfa1, NFA& nfa2){
     if (nfa1.end_node == nullptr || nfa2.start_node == nullptr) {
         std::cerr << "Assertion failed: nfa1.end_node != nullptr && nfa2.start_node != nullptr\n";
-        return ;
+        return reinterpret_cast<NFA &&>(nfa1);
     }
 
     if (nfa1.start_node == nullptr || nfa2.end_node == nullptr) {
             std::cerr << "Assertion failed: nfa1.start_node != nullptr && nfa2.end_node != nullptr\n";
-            return ;
+            return reinterpret_cast<NFA &&>(nfa1);
     }
     nfa1.end_node->acceptance = false;
     nfa2.end_node->acceptance = true;
 
     nfa1.end_node->add_next_node(nfa2.start_node);
     NFA res(*nfa1.start_node, *nfa2.end_node);
-    update_IDs(res);
+//    update_IDs(res);
     return res;
 }
 
@@ -32,7 +32,7 @@ NFA concat_NFA(NFA& nfa1, NFA& nfa2){
 NFA star_NFA(NFA& nfa){
     if (nfa.start_node == nullptr || nfa.end_node == nullptr) {
         std::cerr << "Assertion failed: nfa.start_node != nullptr && nfa.end_node != nullptr\n";
-        return ;
+        reinterpret_cast<NFA &&>(nfa);
     }
     Node start;
     Node end;
@@ -46,7 +46,7 @@ NFA star_NFA(NFA& nfa){
     start.add_next_node(nfa.start_node);
 
     NFA res(start, end);
-    update_IDs(res);
+//    update_IDs(res);
     return res;
 }
 
@@ -56,11 +56,11 @@ NFA star_NFA(NFA& nfa){
 NFA or_NFA(NFA& nfa1, NFA& nfa2){
     if (nfa1.start_node == nullptr || nfa2.start_node == nullptr) {
         std::cerr << "Assertion failed: nfa1.start_node != nullptr && nfa2.start_node != nullptr\n";
-        return ;
+        reinterpret_cast<NFA &&>(nfa1);
     }
     if (nfa1.end_node == nullptr || nfa2.end_node == nullptr) {
         std::cerr << "Assertion failed: nfa1.end_node != nullptr && nfa2.end_node != nullptr\n";
-        return ;
+        reinterpret_cast<NFA &&>(nfa1);
     }
     Node start;
     start.add_next_node(nfa1.start_node);
@@ -75,7 +75,7 @@ NFA or_NFA(NFA& nfa1, NFA& nfa2){
     end.acceptance = true;
 
     NFA res(start, end);
-    update_IDs(res);
+//    update_IDs(res);
 
     return res;
 }

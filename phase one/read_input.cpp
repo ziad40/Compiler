@@ -5,10 +5,9 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
     /* code */
-    cout<<"starting";
+    printf("%d",55);
     Node q0 = Node("0");
     Node q1 = Node("1");
     Node q2 = Node("2");
@@ -20,9 +19,12 @@ int main()
 
     q2.acceptance = true;
 
-    NFA nfa = NFA(q0,q0);
+    NFA nfa = NFA(q0,q2);
+    nfa.node_map["0"] = &q0;
+    nfa.node_map["1"] = &q1;
+    nfa.node_map["2"] = &q2;
     DFA dfa = DFA(&nfa);
     Node* res = dfa.convert_to_DFA();
     std::cout << res->id;
     return 0;
-};
+}
