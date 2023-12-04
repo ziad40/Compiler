@@ -9,7 +9,7 @@ using namespace std;
 
 class Node{
 public:
-    map<char, vector<Node*>> transitions;
+    map<char, vector<Node*>> transitions;  // input -> state
     vector<Node*> epsilon_transitions;
     string id;
     bool acceptance;

@@ -7,7 +7,6 @@ using namespace std;
 
 int main(){
     /* code */
-    printf("%d",55);
     Node q0 = Node("0");
     Node q1 = Node("1");
     Node q2 = Node("2");

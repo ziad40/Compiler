@@ -74,3 +74,11 @@
 4	1024	1701663401383055000	CMakeFiles/phase_one.dir/DFA.cpp.o	183f47114c752c7
 5	1783	1701663402139339200	CMakeFiles/phase_one.dir/read_input.cpp.o	e0aff6fc2ade5e26
 1783	2070	1701663402425604900	phase_one	69ae4c3aadc96391
+1	883	1701716666768089500	CMakeFiles/phase_one.dir/NFA.cpp.o	2d87aa2eb59c3690
+2	998	1701716666882407400	CMakeFiles/phase_one.dir/node.cpp.o	728b62d4278f439b
+1	1420	1701716667304419600	CMakeFiles/phase_one.dir/DFA.cpp.o	183f47114c752c7
+998	2762	1701716668645962600	CMakeFiles/phase_one.dir/utilities.cpp.o	bee0d14e5aa2c16d
+885	3243	1701716669125480300	CMakeFiles/phase_one.dir/read_input.cpp.o	e0aff6fc2ade5e26
+3244	3520	1701716669403060500	phase_one	69ae4c3aadc96391
+6	1698	1701717373831789500	CMakeFiles/phase_one.dir/read_input.cpp.o	e0aff6fc2ade5e26
+1699	1959	1701717374093075200	phase_one	69ae4c3aadc96391

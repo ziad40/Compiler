@@ -69,12 +69,12 @@ class DFA{
                 n->transitions[entry.first].push_back(node);
             }
             else{
-                Node new_node = Node(new_node_id);
-                is_accepted(&new_node);
-                DFA_node_map[new_node_id] = &new_node;
+                Node* new_node = new Node(new_node_id);
+                is_accepted(new_node);
+                DFA_node_map[new_node_id] = new_node;
                 // just 1 node --------------------
-                n->transitions[entry.first].push_back(&new_node);
-                neighbors.insert(&new_node);
+                n->transitions[entry.first].push_back(new_node);
+                neighbors.insert(new_node);
             }
         }
         return neighbors;
