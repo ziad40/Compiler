@@ -1,6 +1,9 @@
 #include <vector>
 #include <map>
 using namespace std;
+
+
+
 class node
 {
     
@@ -16,6 +19,10 @@ public:
 
     node(){
         acceptance = false;  
+    }
+
+    node(bool acceptance){
+        this->acceptance = acceptance;  
     }
 
     node(int ID){
