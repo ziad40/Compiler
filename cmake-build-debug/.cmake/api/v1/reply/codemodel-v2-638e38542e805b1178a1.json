@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.25"
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "project::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-project-Debug-41733302dba80619f7ab.json",
+					"jsonFile" : "target-project-Debug-088e10584ee94b42a7b7.json",
 					"name" : "project",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "E:/4th-1st/Compilers/project/cmake-build-debug",
-		"source" : "E:/4th-1st/Compilers/project"
+		"build" : "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug",
+		"source" : "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 5
 	}
 }

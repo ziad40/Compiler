@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include "NFA.h"
-#include "node.h" 
+#include "node.h"
 #include <iostream>
 
 int Node::counter = 1;
@@ -14,7 +14,7 @@ private:
     void get_keywords(string &line, int i){
         string key;
         while(line[i] != '}'){
-            
+
             if(line[i] != ' '){
                 key += line[i];
             }else{
@@ -32,7 +32,7 @@ private:
             if(line[i] != ' '){
                 if(line[i] != '\\'){
                     key += line[i];
-                } 
+                }
             }else{
                 if(!key.empty()) Punctuations.insert(key);
                 key = "";
@@ -47,7 +47,7 @@ private:
     }
 
     void do_one_operation(stack<string>& operands, stack<char>& operators){
-        
+
     }
 
     void get_reg_def(string line, int index, string name){
@@ -63,7 +63,7 @@ private:
             }
         }
         for(int i=1; i < splitted.size(); i+=2){
-            if(splitted[i] == '-'){   
+            if(splitted[i] == '-'){
                 Node* s = new Node(false);
                 Node* e = new Node(true);
                 for(char x = splitted[i-1]; x <= splitted[i+1]; x++){
@@ -134,7 +134,7 @@ public:
                         name_of_regular += line[i];
                 }
             }
-        }      
+        }
     }
     file.close();
 }
@@ -154,7 +154,7 @@ int main()
         cout << s << "    " ;
     }
     cout << endl;
-    
+
     for (auto it : r.regular_definations) {
         cout << "Regular Definition: " << it.first << endl;
         if (it.second != nullptr) {

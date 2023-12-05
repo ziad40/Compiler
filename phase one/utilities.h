@@ -2,7 +2,7 @@
 #include <iostream>
 #include <set>
 #include <stack>
-#include "NFA.h"  
+#include "NFA.h"
 #include "node.h"
 
 class utilities

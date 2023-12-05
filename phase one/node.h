@@ -1,36 +1,38 @@
-#ifndef NODE_H
-#define NODE_H
-
-#include <utility>
 #include <vector>
 #include <map>
-using namespace std;
-#include <iostream>
+#include<iostream>
 
+using namespace std;
+
+#ifndef Node_H
+#define Node_H
 
 class Node{
 public:
     map<char, vector<Node*>> transitions;  // input -> state
     vector<Node*> epsilon_transitions;
     string id;
-    static int counter;
     bool acceptance;
+    static int counter;
+
     Node(map<char, vector<Node*>> transitions){
         this-> transitions = transitions;
-        acceptance = false;  
-    }
-
-    Node(bool acceptance){
-        id = to_string(counter++);
-        acceptance = acceptance;
-    }
-
-    Node(string& id){
-        this->id = id;
         acceptance = false;
     }
 
-    Node();
+    Node(){
+        acceptance = false;
+    }
+
+    explicit Node(string ID){
+        id = ID;
+        acceptance = false;
+    }
+
+    Node(bool is_accepted){
+        id = to_string(counter++);
+        acceptance = is_accepted;
+    }
 
     void add_next_node(Node* new_node){
         epsilon_transitions.push_back(new_node);
@@ -64,3 +66,4 @@ public:
 };
 
 #endif
+
