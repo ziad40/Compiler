@@ -12,12 +12,10 @@ class node{
 public:
     
     map<char, node*> transitions;
-    map<char, int> groupTransitions;
     
     string id;
     
     bool acceptance;
-    bool isStart;
 
     node(map<char, node*> transitions){
         this -> transitions = transitions;
@@ -30,120 +28,95 @@ public:
     node(string id){
         this->id = id;
     }
-    void setStart(){
-        this-> isStart = true;
-    }
-
 };
 
 
-void minimize(vector<node*>& states) {
+ vector<node*> minimize(vector<node*>& states, node*& startState) {
     // Grouping accepting and non-accepting states initially
-    vector<node*> accepting;
-    vector<node*> nonaccepting;
     
+    vector<node*> accepting;
+    vector<node*> nonaccepting; 
     for (node* state : states) {
         if (state->acceptance)
             accepting.push_back(state);
         else
             nonaccepting.push_back(state);
     }
-
-    //cout << "accepting size: " << accepting.size()<< endl;
-    //cout << "non accepting size: " << nonaccepting.size()<<endl;
     
+    //collect all groups
     vector<vector<node*>> groups;
     groups.push_back(nonaccepting);
     groups.push_back(accepting);
 
+
     bool changed = true;
 
-    vector<node*> newNodes;
+    vector<node*> newNodes; //vector for the new states after the minimization
+    map<int, map<char,int>> groupsTransition;
 
+    //keep looping as there is new grousp are created
     while (changed) {
-        vector<vector<node*>> newGroups;
-
-        //go through each group to check its states
+        vector<vector<node*>> newGroups; //hold the new groups after each step in minimization
+        groupsTransition.clear();
+        int index = 0;
+        //go through each group to check if we can group any of its states
         for (vector<node*> group : groups) {
-            map<map<char, int>, vector<node*>> equivalence; //will be <string, int> instead of string, string
-           // cout << "group size: " << group.size() << endl;
-
-            //go through each state in each group
+            map<map<char, int>, vector<node*>> equivalence; //hold the equivalence states with their common transitions 
+    
+            //go through each state in the group
             for (node* state : group) {
-                map<char, int> transitionMap;//will be <string, int> instead of string, string
-                //cout << "the state is : " << state -> id << endl;
+                map<char, int> transitionMap; //hold all transitions for each state with the groups (state S --> group i with input x)
 
-                // Checking all transitions for each state
+                // Checking all transitions for the state
                 for (const auto& transition : state->transitions) {
                     
-                    char input = transition.first;
-                    //cout << " the input is: " << input << endl;
-                    
+                    //get the input char and the next state according the this input
+                    char input = transition.first; 
                     node* nextState = transition.second;
-                    //cout << "next state is: " << nextState -> id << endl;
-                    // Finding the group to which the next state belongs
                     
                     for (size_t i = 0; i < groups.size(); ++i) {
-                        /*auto query = find(groups[i].begin(), groups[i].end(), nextState);
-                        if (query != groups[i].end()) {
-                            std::cout << "Element " << nextState-> id << " found at index: " << std::distance(groups[i].begin(), query) << std::endl;
-                        } else {
-                            std::cout << "Element " << nextState -> id << " not found." << std::endl;
-                        }
-
-                        bool query_result = query != groups[i].end();
-                        cout << "query result: " << query_result << endl;*/
-
+                        //get the index of the group that holds the next state, if found save it with 
                         if (find(groups[i].begin(), groups[i].end(), nextState) != groups[i].end()) {
                             transitionMap[input] = i; 
                             break;
                         }
                     }
                 }
+                //save all the states of the same group with the same transition map in the same place
                 equivalence[transitionMap].push_back(state);
             }
 
             // Adding states to new groups based on equivalence
             for (const auto& eq : equivalence) {
-                /*for(node* sec: eq.second){
-                    cout << sec -> id << " ";
-                }
-                cout << "eq size = " << eq.second.size() << endl;
-                cout << endl;
-*/
                 newGroups.push_back(eq.second);
-                //cout << "groups_size: " << groups.size()<< " new Groups size: " << newGroups.size() << endl;
+                groupsTransition[index++] = eq.first; 
             }
         }
 
-
+        //check if there was any change in number of groups if so stop the minimization
         if(newGroups.size() == groups.size()){
             changed = false;
-
-
-            for(size_t i; i < newGroups.size(); i++){
-                node* temp = new node(to_string(i));
-                newNodes.push_back(temp);
-            }
-
-          /*  for(size_t i; i < equ.size(); i++){
-                for(auto transition: newGroups[i].first){
-                    node* temp = newNodes[i];
-                    temp->transitions[transition.first[0]] = newNodes[transition.second];
-                }
-            }*/
         }
-        //cout << "size of new Groups is: " << newGroups.size() << endl;
-        //cout << "changed: " << changed << endl;
+        //if there is new groups was created save them as the initial groups to start minimizing from the beginning 
         if (changed) {
             groups = newGroups;
         }
     }
 
-    //cout << "\n\nwe finished" << endl;
-    //cout << "groups size " << groups.size() << endl;
+
+    for(size_t i = 0; i < groupsTransition.size(); i++){
+        node* temp = new node(to_string(i));
+        newNodes.push_back(temp);
+    }
+
     // Outputting the minimized groups
     for (size_t i = 0; i < groups.size(); ++i) {
+        if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
+            cout << "found at i= " << i << endl;
+            cout << "new id should be: " << newNodes[i] -> id << endl;
+            startState = newNodes[i];    
+        }
+        
         cout << "Group " << i << ": ";
         for (node* state : groups[i]) {
             cout << state->id << " ";
@@ -151,13 +124,20 @@ void minimize(vector<node*>& states) {
         cout << endl;
     }
 
-    for(node* node:newNodes){
-        cout<< "node: " << node -> id << endl;
-        cout << "transition for this node: " << endl;
-        for (auto transition: node -> transitions){
-            cout << "input: " << transition.first << " --> " << transition.second-> id << endl;
+
+    
+
+    for(auto g: groupsTransition){
+        int index = g.first;
+        map<char, int> transitions = g.second;
+
+        node* current_state = newNodes[index];
+        for(auto trans: transitions){
+            current_state -> transitions[trans.first] = newNodes[trans.second];
         }
     }
+
+    return newNodes;
 
 }
 
@@ -234,8 +214,18 @@ int main()
     states.push_back(D);
     states.push_back(E);
 */
-    minimize(states);
+    node* startState = A;
+    
+    vector<node*> minimized_states = minimize(states,startState);
+    for(node* n : minimized_states){
+        cout << "state of id: " << n-> id;
+        cout<< " with Transitions: " << endl;
+        for(auto m: n->transitions){
+            cout<<"input:  " << m.first << " --> State: " << m.second->id <<endl;  
+        }
+    }
 
+    cout << "start State: " << startState -> id << endl;
     //cout << "Hello world:-  " << temp.acceptance << endl;
     return 0;
 }
