@@ -3,7 +3,7 @@
 #include <set>
 #include <stack>
 #include "NFA.h"  
-#include "node.h" 
+#include "node.h"
 
 class utilities
 {
@@ -38,19 +38,14 @@ public:
     //     }
     //     node start;
     //     node end(true);
-
     //     nfa.end_node->add_next_node(&end);
     //     nfa.end_node->add_next_node(nfa.start_node);
-
     //     start.add_next_node(&end);
     //     start.add_next_node(nfa.start_node);
     //     NFA res(&start, &end);
     //     // update_IDs(res);
     //     return &res;
     // }
-
-
-
 
     NFA* or_NFA(NFA* nfa1, NFA* nfa2) {
         if (nfa1->start_node == nullptr || nfa2->start_node == nullptr) {
@@ -63,11 +58,11 @@ public:
             return nullptr;
         }
 
-        node* start = new node(false);
+        Node* start = new Node(false);
         start->add_next_node(nfa1->start_node);
         start->add_next_node(nfa2->start_node);
 
-        node* end = new node(true);
+        Node* end = new Node(true);
         nfa1->end_node->add_next_node(end);
         nfa2->end_node->add_next_node(end);
 

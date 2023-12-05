@@ -5,7 +5,7 @@
 #include "node.h" 
 #include <iostream>
 
-int node::counter = 1;
+int Node::counter = 1;
 
 class read_input
 {
@@ -64,8 +64,8 @@ private:
         }
         for(int i=1; i < splitted.size(); i+=2){
             if(splitted[i] == '-'){   
-                node* s = new node(false);
-                node* e = new node(true);
+                Node* s = new Node(false);
+                Node* e = new Node(true);
                 for(char x = splitted[i-1]; x <= splitted[i+1]; x++){
                     s->add_next_node(x, e);
                     // s->printNode();
@@ -165,5 +165,6 @@ int main()
         }
     }
     cout << endl;
+
     return 0;
-}
+};

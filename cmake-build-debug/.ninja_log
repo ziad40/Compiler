@@ -1,12 +1,11 @@
 # ninja log v5
 11	394	7234510644067271	CMakeFiles/project.dir/phase_one/dsfds.cpp.obj	1215377c13cc23b0
-6	1454	7234512554862882	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
-1455	1791	7234512558173058	project.exe	b2e45c97ecce097d
-7	1489	7234514911116033	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
-1490	1829	7234514914465839	project.exe	b2e45c97ecce097d
-6	1440	7234515459376823	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
-1440	1765	7234515462596675	project.exe	b2e45c97ecce097d
-5	1462	7234523527968014	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
-1463	1792	7234523531247983	project.exe	b2e45c97ecce097d
 7	2868	7234525175446785	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
 2917	3359	7234525180426811	project.exe	b2e45c97ecce097d
+14	179	7234544677208633	CMakeFiles/project.dir/phase_one/DFA_test.cpp.obj	55497cfc025a1822
+5	1426	7234545208630857	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+1426	1777	7234545212080856	project.exe	2367b4703773b3e8
+5	2178	7234564152971550	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+13	2625	7234564157431536	CMakeFiles/project.dir/phase_one/DFA_test.cpp.obj	55497cfc025a1822
+5	1399	7234565264901860	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+12	1711	7234565268031893	CMakeFiles/project.dir/phase_one/DFA_test.cpp.obj	55497cfc025a1822

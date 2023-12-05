@@ -9,15 +9,19 @@ class NFA
 {
 
 public:
-    node* start_node;
-    node* end_node;
-    map<int, node*> node_map;
+    Node* start_node;
+    Node* end_node;
+    map<string, Node*> node_map;
     string name;
 
-    NFA(node* start, node* end) : start_node(start), end_node(end) {};
+    NFA(Node* start, Node* end) : start_node(start), end_node(end) {};
 
     NFA() : start_node(nullptr), end_node(nullptr) {}
 
+    NFA(Node& start, Node& end){
+        start_node = &start;
+        end_node = &end;
+    }
 
     void printNFA() const {
         cout << "NFA Name: " << name << std::endl;
@@ -37,7 +41,7 @@ public:
         // Print nodes in the NFA
         std::cout << "Nodes in the NFA:" << std::endl;
         for (auto entry : node_map) {
-            int node_id = entry.first;
+            string node_id = entry.first;
             auto node_ptr = entry.second;
             std::cout << "Node ID: " << node_id << std::endl;
             node_ptr->printNode();

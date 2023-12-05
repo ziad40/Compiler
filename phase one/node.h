@@ -1,37 +1,42 @@
 #ifndef NODE_H
 #define NODE_H
 
+#include <utility>
 #include <vector>
 #include <map>
-#include <chrono>
-#include <ctime>
 using namespace std;
 #include <iostream>
 
 
-class node
-{
-    
+class Node{
 public:
-    map<char, vector<node*>> transitions;
-    vector<node*> epsilon_transitions;
+    map<char, vector<Node*>> transitions;  // input -> state
+    vector<Node*> epsilon_transitions;
     string id;
     static int counter;
     bool acceptance;
-    node(map<char, vector<node*>> transitions) : transitions(transitions) {
+    Node(map<char, vector<Node*>> transitions){
+        this-> transitions = transitions;
+        acceptance = false;  
+    }
+
+    Node(bool acceptance){
+        id = to_string(counter++);
+        acceptance = acceptance;
+    }
+
+    Node(string& id){
+        this->id = id;
         acceptance = false;
     }
 
-    node(bool acceptance){
-        id = to_string(counter++);
-        acceptance = acceptance;  
-    }
+    Node();
 
-    void add_next_node(node* new_node){
+    void add_next_node(Node* new_node){
         epsilon_transitions.push_back(new_node);
     }
 
-    void add_next_node(char c, node* new_node){
+    void add_next_node(char c, Node* new_node){
         transitions[c].push_back(new_node);
     }
 
@@ -58,4 +63,4 @@ public:
     }
 };
 
-#endif // NODE_H
+#endif
