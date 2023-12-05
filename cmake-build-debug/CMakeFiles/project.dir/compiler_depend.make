@@ -205,15 +205,10 @@ CMakeFiles/project.dir/phase_one/DFA.cpp.o: /media/elsharawy/Data/CSED/level\ 4\
   /usr/include/c++/9/bits/stl_queue.h
 
 CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/DFA_test.cpp \
-  /usr/include/stdc-predef.h
-
-CMakeFiles/project.dir/phase_one/dsfds.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/dsfds.cpp \
-  /usr/include/stdc-predef.h
-
-CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/read_input.cpp \
   /usr/include/stdc-predef.h \
-  /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/utilities.h \
-  /usr/include/c++/9/cassert \
+  /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/node.h \
+  /usr/include/c++/9/vector \
+  /usr/include/c++/9/bits/stl_algobase.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/os_defines.h \
   /usr/include/features.h \
@@ -223,20 +218,65 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/cpu_defines.h \
-  /usr/include/assert.h \
-  /usr/include/c++/9/iostream \
-  /usr/include/c++/9/ostream \
-  /usr/include/c++/9/ios \
-  /usr/include/c++/9/iosfwd \
-  /usr/include/c++/9/bits/stringfwd.h \
+  /usr/include/c++/9/bits/functexcept.h \
+  /usr/include/c++/9/bits/exception_defines.h \
+  /usr/include/c++/9/bits/cpp_type_traits.h \
+  /usr/include/c++/9/ext/type_traits.h \
+  /usr/include/c++/9/ext/numeric_traits.h \
+  /usr/include/c++/9/bits/stl_pair.h \
+  /usr/include/c++/9/bits/move.h \
+  /usr/include/c++/9/bits/concept_check.h \
+  /usr/include/c++/9/type_traits \
+  /usr/include/c++/9/bits/stl_iterator_base_types.h \
+  /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/9/debug/assertions.h \
+  /usr/include/c++/9/bits/stl_iterator.h \
+  /usr/include/c++/9/bits/ptr_traits.h \
+  /usr/include/c++/9/debug/debug.h \
+  /usr/include/c++/9/bits/predefined_ops.h \
+  /usr/include/c++/9/bits/allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
+  /usr/include/c++/9/ext/new_allocator.h \
+  /usr/include/c++/9/new \
+  /usr/include/c++/9/exception \
+  /usr/include/c++/9/bits/exception.h \
+  /usr/include/c++/9/bits/exception_ptr.h \
+  /usr/include/c++/9/bits/cxxabi_init_exception.h \
+  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
+  /usr/include/c++/9/typeinfo \
+  /usr/include/c++/9/bits/hash_bytes.h \
+  /usr/include/c++/9/bits/nested_exception.h \
   /usr/include/c++/9/bits/memoryfwd.h \
+  /usr/include/c++/9/bits/stl_construct.h \
+  /usr/include/c++/9/ext/alloc_traits.h \
+  /usr/include/c++/9/bits/alloc_traits.h \
+  /usr/include/c++/9/bits/stl_uninitialized.h \
+  /usr/include/c++/9/bits/stl_vector.h \
+  /usr/include/c++/9/initializer_list \
+  /usr/include/c++/9/bits/stl_bvector.h \
+  /usr/include/c++/9/bits/functional_hash.h \
+  /usr/include/c++/9/bits/range_access.h \
+  /usr/include/c++/9/bits/vector.tcc \
+  /usr/include/c++/9/map \
+  /usr/include/c++/9/bits/stl_tree.h \
+  /usr/include/c++/9/bits/stl_function.h \
+  /usr/include/c++/9/backward/binders.h \
+  /usr/include/c++/9/ext/aligned_buffer.h \
+  /usr/include/c++/9/bits/stl_map.h \
+  /usr/include/c++/9/tuple \
+  /usr/include/c++/9/utility \
+  /usr/include/c++/9/bits/stl_relops.h \
+  /usr/include/c++/9/array \
+  /usr/include/c++/9/stdexcept \
+  /usr/include/c++/9/string \
+  /usr/include/c++/9/bits/stringfwd.h \
+  /usr/include/c++/9/bits/char_traits.h \
   /usr/include/c++/9/bits/postypes.h \
   /usr/include/c++/9/cwchar \
   /usr/include/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
-  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
@@ -246,32 +286,6 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
-  /usr/include/c++/9/exception \
-  /usr/include/c++/9/bits/exception.h \
-  /usr/include/c++/9/bits/exception_ptr.h \
-  /usr/include/c++/9/bits/exception_defines.h \
-  /usr/include/c++/9/bits/cxxabi_init_exception.h \
-  /usr/include/c++/9/typeinfo \
-  /usr/include/c++/9/bits/hash_bytes.h \
-  /usr/include/c++/9/new \
-  /usr/include/c++/9/bits/nested_exception.h \
-  /usr/include/c++/9/bits/move.h \
-  /usr/include/c++/9/bits/concept_check.h \
-  /usr/include/c++/9/type_traits \
-  /usr/include/c++/9/bits/char_traits.h \
-  /usr/include/c++/9/bits/stl_algobase.h \
-  /usr/include/c++/9/bits/functexcept.h \
-  /usr/include/c++/9/bits/cpp_type_traits.h \
-  /usr/include/c++/9/ext/type_traits.h \
-  /usr/include/c++/9/ext/numeric_traits.h \
-  /usr/include/c++/9/bits/stl_pair.h \
-  /usr/include/c++/9/bits/stl_iterator_base_types.h \
-  /usr/include/c++/9/bits/stl_iterator_base_funcs.h \
-  /usr/include/c++/9/debug/assertions.h \
-  /usr/include/c++/9/bits/stl_iterator.h \
-  /usr/include/c++/9/bits/ptr_traits.h \
-  /usr/include/c++/9/debug/debug.h \
-  /usr/include/c++/9/bits/predefined_ops.h \
   /usr/include/c++/9/cstdint \
   /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h \
   /usr/include/stdint.h \
@@ -286,11 +300,14 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
   /usr/include/c++/9/clocale \
   /usr/include/locale.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/9/iosfwd \
   /usr/include/c++/9/cctype \
   /usr/include/ctype.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
-  /usr/include/c++/9/bits/ios_base.h \
+  /usr/include/c++/9/bits/ostream_insert.h \
+  /usr/include/c++/9/bits/cxxabi_forced.h \
+  /usr/include/c++/9/bits/basic_string.h \
   /usr/include/c++/9/ext/atomicity.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/gthr-default.h \
@@ -317,20 +334,6 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/c++/9/bits/atomic_word.h \
-  /usr/include/c++/9/bits/locale_classes.h \
-  /usr/include/c++/9/string \
-  /usr/include/c++/9/bits/allocator.h \
-  /usr/include/x86_64-linux-gnu/c++/9/bits/c++allocator.h \
-  /usr/include/c++/9/ext/new_allocator.h \
-  /usr/include/c++/9/bits/ostream_insert.h \
-  /usr/include/c++/9/bits/cxxabi_forced.h \
-  /usr/include/c++/9/bits/stl_function.h \
-  /usr/include/c++/9/backward/binders.h \
-  /usr/include/c++/9/bits/range_access.h \
-  /usr/include/c++/9/initializer_list \
-  /usr/include/c++/9/bits/basic_string.h \
-  /usr/include/c++/9/ext/alloc_traits.h \
-  /usr/include/c++/9/bits/alloc_traits.h \
   /usr/include/c++/9/ext/string_conversions.h \
   /usr/include/c++/9/cstdlib \
   /usr/include/stdlib.h \
@@ -363,12 +366,19 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
   /usr/include/asm-generic/errno.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
-  /usr/include/c++/9/bits/functional_hash.h \
   /usr/include/c++/9/bits/basic_string.tcc \
+  /usr/include/c++/9/bits/uses_allocator.h \
+  /usr/include/c++/9/bits/invoke.h \
+  /usr/include/c++/9/bits/stl_multimap.h \
+  /usr/include/c++/9/bits/erase_if.h \
+  /usr/include/c++/9/iostream \
+  /usr/include/c++/9/ostream \
+  /usr/include/c++/9/ios \
+  /usr/include/c++/9/bits/ios_base.h \
+  /usr/include/c++/9/bits/locale_classes.h \
   /usr/include/c++/9/bits/locale_classes.tcc \
   /usr/include/c++/9/system_error \
   /usr/include/x86_64-linux-gnu/c++/9/bits/error_constants.h \
-  /usr/include/c++/9/stdexcept \
   /usr/include/c++/9/streambuf \
   /usr/include/c++/9/bits/streambuf.tcc \
   /usr/include/c++/9/bits/basic_ios.h \
@@ -384,50 +394,26 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
   /usr/include/c++/9/bits/ostream.tcc \
   /usr/include/c++/9/istream \
   /usr/include/c++/9/bits/istream.tcc \
+  /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/NFA.h \
+  /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/DFA.cpp \
   /usr/include/c++/9/set \
-  /usr/include/c++/9/bits/stl_tree.h \
-  /usr/include/c++/9/ext/aligned_buffer.h \
   /usr/include/c++/9/bits/stl_set.h \
   /usr/include/c++/9/bits/stl_multiset.h \
-  /usr/include/c++/9/bits/erase_if.h \
   /usr/include/c++/9/stack \
   /usr/include/c++/9/deque \
-  /usr/include/c++/9/bits/stl_construct.h \
-  /usr/include/c++/9/bits/stl_uninitialized.h \
   /usr/include/c++/9/bits/stl_deque.h \
   /usr/include/c++/9/bits/deque.tcc \
   /usr/include/c++/9/bits/stl_stack.h \
-  /usr/include/c++/9/bits/uses_allocator.h \
-  /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/NFA.h \
-  /usr/include/c++/9/map \
-  /usr/include/c++/9/bits/stl_map.h \
-  /usr/include/c++/9/tuple \
-  /usr/include/c++/9/utility \
-  /usr/include/c++/9/bits/stl_relops.h \
-  /usr/include/c++/9/array \
-  /usr/include/c++/9/bits/invoke.h \
-  /usr/include/c++/9/bits/stl_multimap.h \
-  /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/node.h \
-  /usr/include/c++/9/vector \
-  /usr/include/c++/9/bits/stl_vector.h \
-  /usr/include/c++/9/bits/stl_bvector.h \
-  /usr/include/c++/9/bits/vector.tcc \
-  /usr/include/c++/9/fstream \
-  /usr/include/c++/9/bits/codecvt.h \
-  /usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h \
-  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
-  /usr/include/c++/9/bits/fstream.tcc
+  /usr/include/c++/9/queue \
+  /usr/include/c++/9/bits/stl_heap.h \
+  /usr/include/c++/9/bits/stl_queue.h
 
+CMakeFiles/project.dir/phase_one/dsfds.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/dsfds.cpp \
+  /usr/include/stdc-predef.h
 
-/usr/include/c++/9/bits/fstream.tcc:
+CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/read_input.cpp \
+  /usr/include/stdc-predef.h
 
-/usr/include/x86_64-linux-gnu/c++/9/bits/basic_file.h:
-
-/usr/include/assert.h:
-
-/usr/include/c++/9/cassert:
-
-/media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/utilities.h:
 
 /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/read_input.cpp:
 
@@ -464,8 +450,6 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
 /usr/include/c++/9/cwctype:
 
 /usr/include/c++/9/bits/locale_facets.h:
-
-/usr/include/c++/9/bits/codecvt.h:
 
 /usr/include/c++/9/bits/basic_ios.h:
 
@@ -590,8 +574,6 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/stdc-predef.h:
-
-/usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h:
 
 /usr/include/c++/9/bits/move.h:
 
@@ -720,8 +702,6 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.o: /media/elsharawy/Data/CSED/le
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/c++/9/fstream:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
