@@ -52,6 +52,7 @@ public:
     bool changed = true;
 
     vector<node*> newNodes; //vector for the new states after the minimization
+    vector<bool> acceptingSates;
     map<int, map<char,int>> groupsTransition;
 
     //keep looping as there is new grousp are created
@@ -89,6 +90,15 @@ public:
             // Adding states to new groups based on equivalence
             for (const auto& eq : equivalence) {
                 newGroups.push_back(eq.second);
+                acceptingSates.push_back(false);
+                for(node* state1: eq.second){
+                    for (node* state2: accepting){
+                        if(state1 == state2){
+                            acceptingSates.back() =true;
+                            break;
+                        }
+                    }
+                }
                 groupsTransition[index++] = eq.first; 
             }
         }
@@ -106,14 +116,13 @@ public:
 
     for(size_t i = 0; i < groupsTransition.size(); i++){
         node* temp = new node(to_string(i));
+        temp -> acceptance = acceptingSates[i];
         newNodes.push_back(temp);
     }
 
     // Outputting the minimized groups
     for (size_t i = 0; i < groups.size(); ++i) {
         if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
-            cout << "found at i= " << i << endl;
-            cout << "new id should be: " << newNodes[i] -> id << endl;
             startState = newNodes[i];    
         }
         
@@ -218,7 +227,7 @@ int main()
     
     vector<node*> minimized_states = minimize(states,startState);
     for(node* n : minimized_states){
-        cout << "state of id: " << n-> id;
+        cout << "state of id: " << n-> id << " is acceptance: " << n-> acceptance << " ";
         cout<< " with Transitions: " << endl;
         for(auto m: n->transitions){
             cout<<"input:  " << m.first << " --> State: " << m.second->id <<endl;  
@@ -226,6 +235,9 @@ int main()
     }
 
     cout << "start State: " << startState -> id << endl;
-    //cout << "Hello world:-  " << temp.acceptance << endl;
+    for(auto transition: startState-> transitions){
+        cout<< "input: " << transition.first << "--> State: " << transition.second->id << endl;
+    }
+
     return 0;
 }
