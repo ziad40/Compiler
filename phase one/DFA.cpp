@@ -43,9 +43,8 @@ class DFA{
     set<Node*> handle_node_transactions(Node* n){ // 15679
         set<Node*> neighbors;
         map<char, string> current_node_transactions;
-
-        for(char sub_node_id : n->id){ // 1
-            string s(1, sub_node_id);
+        vector<string> ids = get_sub_nodes_id(n->id);
+        for(const string& s : ids){ // 1
             Node* sub_node = nfa->node_map[s];
             for (auto &entry : sub_node->transitions) { // all 1 inputs
                 for(Node* next : entry.second){
@@ -55,7 +54,7 @@ class DFA{
         }
 
         for(auto &entry : current_node_transactions){ // a->2467
-            set<Node*> input_next_node;  
+            set<Node*> input_next_node;
             for(char sub_node_id : entry.second){ // 2
                 string s(1,sub_node_id);
                 set<Node*> sub_node_eps_neighbors = get_eq_epsilon_neighbors(nfa->node_map[s]);
@@ -100,23 +99,19 @@ class DFA{
 
     static string generate_node_id(const set<Node*>& nodes){
         string state_id;
-
-        // std::vector<Node*> nodesVector(nodes.begin(), nodes.end());
-        // std::sort(nodesVector.begin(), nodesVector.end(), [](Node* a, Node* b) { return a->id < b->id; });
-        // std::set<Node*> sortedNodes(nodesVector.begin(), nodesVector.end());
-        // sort(nodes.begin(), nodes.end(), [](Node* a, Node* b){return a->id < b->id;});
-
         auto it = nodes.begin();
         while (it != nodes.end()) {
-            state_id += (*it)->id;
+            state_id += (*it)->id + ',';
             it++;
         }
+        if(!state_id.empty())
+            state_id.erase(state_id.size() - 1);
         return state_id;
     }
 
     void is_accepted(Node* n) const{
-        for(char c : n->id){
-            string s(1, c);
+        vector<string> ids = get_sub_nodes_id(n->id);
+        for(const string& s : ids){
             Node* sub_node = nfa->node_map[s];
             if(sub_node->acceptance){
                 n->acceptance = true;
@@ -124,6 +119,29 @@ class DFA{
             }
         }
         n->acceptance = false;
+    }
+
+    static vector<string> get_sub_nodes_id(const string& id) {
+        std::vector<std::string> result;
+        size_t start = 0;
+        size_t end = id.find(',');
+
+        // Check if the delimiter is not found
+        if (end == std::string::npos) {
+            result.push_back(id);
+            return result;
+        }
+
+        while (end != std::string::npos) {
+            result.push_back(id.substr(start, end - start));
+            start = end + 1;
+            end = id.find(',', start);
+        }
+
+        // Add the last substring
+        result.push_back(id.substr(start));
+
+        return result;
     }
 
     void print_dfa(){
@@ -136,7 +154,7 @@ class DFA{
             if(visited.find(node->id) != visited.end())
                 continue;
             visited.insert(node->id);
-            printf("\nState %s",node->id.c_str());
+            printf("\nState %s   %d",node->id.c_str(),node->acceptance);
             printf("\nTransactions\n");
             for(auto &entry : node->transitions){
                 printf("\t%c -> ",entry.first);
