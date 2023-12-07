@@ -258,7 +258,7 @@ private:
 
 };
 
-//
+
 //int Node::counter = 1;
 //int main()
 //{
@@ -273,6 +273,7 @@ private:
 //    }
 //    cout << endl;
 //
+//    r.routing_nfa->printTree();
 //    for (const auto& it : r.regular_definations) {
 //        cout << "Regular Definition: " << it.first << endl;
 //        if (it.second != nullptr) {
@@ -294,6 +295,6 @@ private:
 //        }
 //    }
 //    cout << endl;
-//
-//    return 0;
-//}
+
+    return 0;
+}
