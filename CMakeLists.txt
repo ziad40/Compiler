@@ -17,4 +17,5 @@ add_executable(project
         parser.cpp
         lexical_analyzer.h
         parser.h
+        main.cpp
 )
