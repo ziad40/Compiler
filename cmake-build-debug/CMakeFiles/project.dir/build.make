@@ -83,19 +83,19 @@ CMakeFiles/project.dir/phase_one/read_input.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/phase_one/read_input.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/read_input.cpp" -o CMakeFiles/project.dir/phase_one/read_input.cpp.s
 
-CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/DFA_test.cpp
-CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project.dir/phase_one/DFA_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/phase_one/DFA_test.cpp.o -MF CMakeFiles/project.dir/phase_one/DFA_test.cpp.o.d -o CMakeFiles/project.dir/phase_one/DFA_test.cpp.o -c "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA_test.cpp"
+CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/lexical_analyzer.cpp
+CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o -MF CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o.d -o CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o -c "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp"
 
-CMakeFiles/project.dir/phase_one/DFA_test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/phase_one/DFA_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA_test.cpp" > CMakeFiles/project.dir/phase_one/DFA_test.cpp.i
+CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp" > CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i
 
-CMakeFiles/project.dir/phase_one/DFA_test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/phase_one/DFA_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA_test.cpp" -o CMakeFiles/project.dir/phase_one/DFA_test.cpp.s
+CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp" -o CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s
 
 CMakeFiles/project.dir/phase_one/DFA.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/phase_one/DFA.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/DFA.cpp
@@ -111,34 +111,34 @@ CMakeFiles/project.dir/phase_one/DFA.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/phase_one/DFA.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA.cpp" -o CMakeFiles/project.dir/phase_one/DFA.cpp.s
 
-CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/lexical_analyzer.cpp
-CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o -MF CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o.d -o CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o -c "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp"
+CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: CMakeFiles/project.dir/flags.make
+CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: /media/elsharawy/Data/CSED/level\ 4\ term\ 1/Compilers/compilers\ project/Compiler/phase\ one/DFA_test.cpp
+CMakeFiles/project.dir/phase_one/DFA_test.cpp.o: CMakeFiles/project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project.dir/phase_one/DFA_test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project.dir/phase_one/DFA_test.cpp.o -MF CMakeFiles/project.dir/phase_one/DFA_test.cpp.o.d -o CMakeFiles/project.dir/phase_one/DFA_test.cpp.o -c "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA_test.cpp"
 
-CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp" > CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i
+CMakeFiles/project.dir/phase_one/DFA_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project.dir/phase_one/DFA_test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA_test.cpp" > CMakeFiles/project.dir/phase_one/DFA_test.cpp.i
 
-CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp" -o CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s
+CMakeFiles/project.dir/phase_one/DFA_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project.dir/phase_one/DFA_test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/DFA_test.cpp" -o CMakeFiles/project.dir/phase_one/DFA_test.cpp.s
 
 # Object files for target project
 project_OBJECTS = \
 "CMakeFiles/project.dir/phase_one/read_input.cpp.o" \
-"CMakeFiles/project.dir/phase_one/DFA_test.cpp.o" \
+"CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o" \
 "CMakeFiles/project.dir/phase_one/DFA.cpp.o" \
-"CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o"
+"CMakeFiles/project.dir/phase_one/DFA_test.cpp.o"
 
 # External object files for target project
 project_EXTERNAL_OBJECTS =
 
 project: CMakeFiles/project.dir/phase_one/read_input.cpp.o
-project: CMakeFiles/project.dir/phase_one/DFA_test.cpp.o
-project: CMakeFiles/project.dir/phase_one/DFA.cpp.o
 project: CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o
+project: CMakeFiles/project.dir/phase_one/DFA.cpp.o
+project: CMakeFiles/project.dir/phase_one/DFA_test.cpp.o
 project: CMakeFiles/project.dir/build.make
 project: CMakeFiles/project.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable project"

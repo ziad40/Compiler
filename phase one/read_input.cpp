@@ -14,7 +14,7 @@ public:
     set<string> Punctuations;
     map<string, NFA*> regular_definations;
     map<string, NFA*> regular_expressions;
-    NFA routing_nfa;
+    NFA* routing_nfa;
 
     void read_lines(const string& rules_file_path){
         string line;
@@ -47,7 +47,7 @@ public:
             }
         }
         file.close();
-//        finalize();
+        finalize();
     }
 
 private:
@@ -247,22 +247,23 @@ private:
     }
 
     void finalize(){
-        for(auto it : regular_definations){
-            utilities::update_node_map(it.second);
+        vector<NFA*> all_nfa;
+        all_nfa.reserve(regular_expressions.size());
+        for(const auto& r : regular_expressions){
+            all_nfa.push_back(r.second);
         }
-        for(auto it : regular_expressions){
-            utilities::update_node_map(it.second);
-        }
+        routing_nfa = utilities::or_all_NFAs(all_nfa);
     }
 
 
 };
-//
+
+
 //int Node::counter = 1;
 //int main()
 //{
 //    read_input r;
-//    r.read_lines(R"(/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/input_example.txt)");
+//    r.read_lines(R"(E:\4th-1st\Compilers\project\phase one\input_example.txt)");
 //    for(const string& s : r.Keywords){
 //        cout << s << "    " ;
 //    }
@@ -272,6 +273,7 @@ private:
 //    }
 //    cout << endl;
 //
+//    r.routing_nfa->printTree();
 //    for (const auto& it : r.regular_definations) {
 //        cout << "Regular Definition: " << it.first << endl;
 //        if (it.second != nullptr) {
@@ -293,6 +295,5 @@ private:
 //        }
 //    }
 //    cout << endl;
-//
 //    return 0;
 //}
