@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/project.dir/phase_one/dsfds.cpp.o CMakeFiles/project.dir/phase_one/read_input.cpp.o CMakeFiles/project.dir/phase_one/DFA_test.cpp.o CMakeFiles/project.dir/phase_one/DFA.cpp.o -o project 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /snap/clion/259/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler" -B "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug"
 CMake Deprecation Warning:
   Support for "Extra Generators" like
@@ -23,3 +24,9 @@ CMake Deprecation Warning:
 -- Configuring done (6.5s)
 -- Generating done (0.2s)
 -- Build files have been written to: /media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug
+=======
+"C:\Program Files\JetBrains\CLion 2023.1.4\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.1.4/bin/ninja/win/x64/ninja.exe" -G Ninja -S E:\4th-1st\Compilers\project -B E:\4th-1st\Compilers\project\cmake-build-debug
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/4th-1st/Compilers/project/cmake-build-debug
+>>>>>>> 385ff61da2c51a560e3d0809a167ddf8e5b8e4ee
