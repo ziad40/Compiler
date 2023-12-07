@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include "NFA.h"
-#include "node.h" 
+#include "node.h"
 #include <iostream>
 #include <unordered_set>
 #include <algorithm>
@@ -54,7 +54,7 @@ private:
     void get_keywords(string &line, int i){
         string key;
         while(line[i] != '}'){
-            
+
             if(line[i] != ' '){
                 key += line[i];
             }else{
@@ -72,7 +72,7 @@ private:
             if(line[i] != ' '){
                 if(line[i] != '\\'){
                     key += line[i];
-                } 
+                }
             }else{
                 if(!key.empty()) Punctuations.insert(key);
                 key = "";
@@ -204,47 +204,47 @@ private:
 
 
     void get_reg_def(string line, int index, string name){
-    size_t found = line.find('-');
-    if (found != string::npos){
-        vector<char> splitted;
-        vector<NFA*> nfas;
-        for(int i = index; i < line.size(); i++){
-            if(line[i] != ' '){
-                splitted.push_back(line[i]);
-            }
-        }
-        for(int i=1; i < splitted.size(); i+=2){
-            if(splitted[i] == '-'){   
-                Node* s = new Node(false);
-                Node* e = new Node(true);
-                for(char x = splitted[i-1]; x <= splitted[i+1]; x++){
-                    s->add_next_node(x, e);
+        size_t found = line.find('-');
+        if (found != string::npos){
+            vector<char> splitted;
+            vector<NFA*> nfas;
+            for(int i = index; i < line.size(); i++){
+                if(line[i] != ' '){
+                    splitted.push_back(line[i]);
                 }
-                NFA* nfa = new NFA(s, e);
-                nfa->node_map[s->id] = s;
-                nfa->node_map[e->id] = e;
-                nfas.push_back(nfa);
-            } else if(splitted[i] == '|'){
-                continue;
             }
-        }
-        if(nfas.size() == 1){
-            nfas[0]->name = name;
-            regular_definations[name] = nfas[0];
-        } else {
-            NFA* result = utilities::or_NFA(nfas[0], nfas[1]);
-            result->name = name;
-            // Apply or_NFA operation on all NFAs in the vector
-            for (int n = 2; n < nfas.size(); n++) {
-                result = utilities::or_NFA(result, nfas[n]);
+            for(int i=1; i < splitted.size(); i+=2){
+                if(splitted[i] == '-'){
+                    Node* s = new Node(false);
+                    Node* e = new Node(true);
+                    for(char x = splitted[i-1]; x <= splitted[i+1]; x++){
+                        s->add_next_node(x, e);
+                    }
+                    NFA* nfa = new NFA(s, e);
+                    nfa->node_map[s->id] = s;
+                    nfa->node_map[e->id] = e;
+                    nfas.push_back(nfa);
+                } else if(splitted[i] == '|'){
+                    continue;
+                }
             }
-            regular_definations[name] = result;
-        }
+            if(nfas.size() == 1){
+                nfas[0]->name = name;
+                regular_definations[name] = nfas[0];
+            } else {
+                NFA* result = utilities::or_NFA(nfas[0], nfas[1]);
+                result->name = name;
+                // Apply or_NFA operation on all NFAs in the vector
+                for (int n = 2; n < nfas.size(); n++) {
+                    result = utilities::or_NFA(result, nfas[n]);
+                }
+                regular_definations[name] = result;
+            }
 
-    } else {
-        evaluate_expression(line, index+1, name, false);
+        } else {
+            evaluate_expression(line, index+1, name, false);
+        }
     }
-}
 
     void finalize(){
         for(auto it : regular_definations){
@@ -271,7 +271,7 @@ int main()
         cout << s << "    " ;
     }
     cout << endl;
-    
+
     for (const auto& it : r.regular_definations) {
         cout << "Regular Definition: " << it.first << endl;
         if (it.second != nullptr) {

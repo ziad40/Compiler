@@ -17,7 +17,7 @@ public:
 
     explicit Node(map<char, vector<Node*>> transitions){
         this-> transitions = std::move(transitions);
-        acceptance = false;  
+        acceptance = false;
     }
     Node(map<char, vector<Node*>> transitions, vector<Node*> epsilon_transitions, bool acceptance){
         this->id = to_string(counter++);
