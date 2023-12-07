@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/project.dir/phase_one/read_input.cpp.o CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o CMakeFiles/project.dir/phase_one/DFA.cpp.o CMakeFiles/project.dir/phase_one/DFA_test.cpp.o -o project 

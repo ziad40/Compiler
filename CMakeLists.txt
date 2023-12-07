@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories("phase one")
 
 add_executable(project
-        "phase one/NFA.h"
-        "phase one/node.h"
-        "phase one/read_input.cpp"
-        "phase one/utilities.h" "phase one/lexical_analyzer.cpp" "phase one/DFA.cpp" "phase one/DFA.cpp" "phase one/DFA_test.cpp")
+        "NFA.h"
+        "node.h"
+        "read_input.cpp"
+        "utilities.h" "lexical_analyzer.cpp" "DFA.cpp" "DFA.cpp" "DFA_test.cpp")
 

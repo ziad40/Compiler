@@ -1,3 +1,0 @@
-/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles/project.dir
-/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles/edit_cache.dir
-/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/cmake-build-debug/CMakeFiles/rebuild_cache.dir
