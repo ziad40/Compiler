@@ -9,5 +9,11 @@ add_executable(project
         "NFA.h"
         "node.h"
         "read_input.cpp"
-        "utilities.h" "lexical_analyzer.cpp" "DFA.cpp" "DFA.cpp" "DFA_test.cpp")
-
+        "utilities.h"
+        "lexical_analyzer.cpp"
+        "DFA.cpp"
+        "DFA.cpp"
+        "DFA_test.cpp"
+        parser.cpp
+        lexical_analyzer.h
+)

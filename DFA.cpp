@@ -278,17 +278,17 @@ class DFA{
         }
 
         // Outputting the minimized groups
-        for (size_t i = 0; i < groups.size(); ++i) {
-            if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
-                startState = newNodes[i];
-            }
-
-            cout << "Group " << i << ": ";
-            for (Node* state : groups[i]) {
-                cout << state->id << " ";
-            }
-            cout << endl;
-        }
+//        for (size_t i = 0; i < groups.size(); ++i) {
+//            if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
+//                startState = newNodes[i];
+//            }
+//
+//            cout << "Group " << i << ": ";
+//            for (Node* state : groups[i]) {
+//                cout << state->id << " ";
+//            }
+//            cout << endl;
+//        }
 
         for(auto g: groupsTransition){
             int index = g.first;
