@@ -177,29 +177,29 @@ phase_one/DFA_test.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/DFA_test.cpp.s
 .PHONY : phase_one/DFA_test.cpp.s
 
-phase_one/dsfds.o: phase_one/dsfds.cpp.o
-.PHONY : phase_one/dsfds.o
+phase_one/lexical_analyzer.o: phase_one/lexical_analyzer.cpp.o
+.PHONY : phase_one/lexical_analyzer.o
 
 # target to build an object file
-phase_one/dsfds.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/dsfds.cpp.o
-.PHONY : phase_one/dsfds.cpp.o
+phase_one/lexical_analyzer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.o
+.PHONY : phase_one/lexical_analyzer.cpp.o
 
-phase_one/dsfds.i: phase_one/dsfds.cpp.i
-.PHONY : phase_one/dsfds.i
+phase_one/lexical_analyzer.i: phase_one/lexical_analyzer.cpp.i
+.PHONY : phase_one/lexical_analyzer.i
 
 # target to preprocess a source file
-phase_one/dsfds.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/dsfds.cpp.i
-.PHONY : phase_one/dsfds.cpp.i
+phase_one/lexical_analyzer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.i
+.PHONY : phase_one/lexical_analyzer.cpp.i
 
-phase_one/dsfds.s: phase_one/dsfds.cpp.s
-.PHONY : phase_one/dsfds.s
+phase_one/lexical_analyzer.s: phase_one/lexical_analyzer.cpp.s
+.PHONY : phase_one/lexical_analyzer.s
 
 # target to generate assembly for a file
-phase_one/dsfds.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/dsfds.cpp.s
-.PHONY : phase_one/dsfds.cpp.s
+phase_one/lexical_analyzer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.s
+.PHONY : phase_one/lexical_analyzer.cpp.s
 
 phase_one/read_input.o: phase_one/read_input.cpp.o
 .PHONY : phase_one/read_input.o
@@ -240,9 +240,9 @@ help:
 	@echo "... phase_one/DFA_test.o"
 	@echo "... phase_one/DFA_test.i"
 	@echo "... phase_one/DFA_test.s"
-	@echo "... phase_one/dsfds.o"
-	@echo "... phase_one/dsfds.i"
-	@echo "... phase_one/dsfds.s"
+	@echo "... phase_one/lexical_analyzer.o"
+	@echo "... phase_one/lexical_analyzer.i"
+	@echo "... phase_one/lexical_analyzer.s"
 	@echo "... phase_one/read_input.o"
 	@echo "... phase_one/read_input.i"
 	@echo "... phase_one/read_input.s"

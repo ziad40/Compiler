@@ -48,16 +48,21 @@ class DFA{
             Node* sub_node = nfa->node_map[s];
             for (auto &entry : sub_node->transitions) { // all 1 inputs
                 for(Node* next : entry.second){
-                    current_node_transactions[entry.first]+=next->id;
+                    //////////////////////////
+                    current_node_transactions[entry.first]+=next->id+',';
                 }
+                if(!current_node_transactions[entry.first].empty())
+                    current_node_transactions[entry.first].erase(current_node_transactions[entry.first].size() - 1);
             }
         }
 
         for(auto &entry : current_node_transactions){ // a->2467
             set<Node*> input_next_node;
-            for(char sub_node_id : entry.second){ // 2
-                string s(1,sub_node_id);
-                set<Node*> sub_node_eps_neighbors = get_eq_epsilon_neighbors(nfa->node_map[s]);
+            //////////////////////////////
+            vector<string> ids_to_gen = get_sub_nodes_id(entry.second);
+            for(string sub_node_id : ids_to_gen){ // 2
+//                string s(1,sub_node_id);
+                set<Node*> sub_node_eps_neighbors = get_eq_epsilon_neighbors(nfa->node_map[sub_node_id]);
                 input_next_node.insert(sub_node_eps_neighbors.begin(), sub_node_eps_neighbors.end());
             }
             // now we have eps for all 2467 so now create new node and add it to trans of current
@@ -126,7 +131,7 @@ class DFA{
         size_t start = 0;
         size_t end = id.find(',');
 
-        // Check if the delimiter is not found
+        // Check if the delimiterentry.second is not found
         if (end == std::string::npos) {
             result.push_back(id);
             return result;

@@ -93,7 +93,7 @@
 		<Unit filename="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/NFA.h">
 			<Option target="project"/>
 		</Unit>
-		<Unit filename="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/dsfds.cpp">
+		<Unit filename="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/lexical_analyzer.cpp">
 			<Option target="project"/>
 		</Unit>
 		<Unit filename="/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/node.h">

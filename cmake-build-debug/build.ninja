@@ -56,20 +56,6 @@ build CMakeFiles/project.dir/phase_one/read_input.cpp.obj: CXX_COMPILER__project
   OBJECT_DIR = CMakeFiles\project.dir
   OBJECT_FILE_DIR = CMakeFiles\project.dir\phase_one
 
-build CMakeFiles/project.dir/phase_one/DFA_test.cpp.obj: CXX_COMPILER__project_Debug E$:/4th-1st/Compilers/project/phase$ one/DFA_test.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\phase_one\DFA_test.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -I"E:/4th-1st/Compilers/project/phase one"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir\phase_one
-
-build CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.obj: CXX_COMPILER__project_Debug E$:/4th-1st/Compilers/project/phase$ one/lexical_analyzer.cpp || cmake_object_order_depends_target_project
-  DEP_FILE = CMakeFiles\project.dir\phase_one\lexical_analyzer.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always -std=gnu++14
-  INCLUDES = -I"E:/4th-1st/Compilers/project/phase one"
-  OBJECT_DIR = CMakeFiles\project.dir
-  OBJECT_FILE_DIR = CMakeFiles\project.dir\phase_one
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target project
@@ -78,7 +64,7 @@ build CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.obj: CXX_COMPILER__p
 #############################################
 # Link the executable project.exe
 
-build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/phase_one/read_input.cpp.obj CMakeFiles/project.dir/phase_one/DFA_test.cpp.obj CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.obj
+build project.exe: CXX_EXECUTABLE_LINKER__project_Debug CMakeFiles/project.dir/phase_one/read_input.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\project.dir
