@@ -48,20 +48,20 @@ class DFA{
             Node* sub_node = nfa->node_map[s];
             for (auto &entry : sub_node->transitions) { // all 1 inputs
                 for(Node* next : entry.second){
-                    //////////////////////////
                     current_node_transactions[entry.first]+=next->id+',';
                 }
-                if(!current_node_transactions[entry.first].empty())
-                    current_node_transactions[entry.first].erase(current_node_transactions[entry.first].size() - 1);
+//                if(!current_node_transactions[entry.first].empty())
+//                    current_node_transactions[entry.first].erase(current_node_transactions[entry.first].size() - 1);
             }
         }
 
         for(auto &entry : current_node_transactions){ // a->2467
             set<Node*> input_next_node;
-            //////////////////////////////
             vector<string> ids_to_gen = get_sub_nodes_id(entry.second);
             for(string sub_node_id : ids_to_gen){ // 2
 //                string s(1,sub_node_id);
+                if(sub_node_id == "")
+                    continue;
                 set<Node*> sub_node_eps_neighbors = get_eq_epsilon_neighbors(nfa->node_map[sub_node_id]);
                 input_next_node.insert(sub_node_eps_neighbors.begin(), sub_node_eps_neighbors.end());
             }
