@@ -3,6 +3,10 @@
 #include <set>
 #include <stack>
 #include <queue>
+#include <iostream>
+#include <vector>
+#include <map>
+#include <algorithm>
 
 using namespace std;
 
@@ -175,5 +179,128 @@ class DFA{
             }
             printf("\n");
         }
+    }
+
+    vector<Node*> minimize() {
+        // Grouping accepting and non-accepting states initially
+        vector<Node*> states;
+        for(auto &entry : DFA_node_map)
+            states.push_back(entry.second);
+
+        Node* startState = &DFA_start_node;
+
+        vector<Node*> accepting;
+        vector<Node*> nonaccepting;
+        for (Node* state : states) {
+            if (state->acceptance)
+                accepting.push_back(state);
+            else
+                nonaccepting.push_back(state);
+        }
+
+        //collect all groups
+        vector<vector<Node*>> groups;
+        groups.push_back(nonaccepting);
+        groups.push_back(accepting);
+
+
+        bool changed = true;
+
+        vector<Node*> newNodes; //vector for the new states after the minimization
+        vector<bool> acceptingSates;
+        map<int, map<char,int>> groupsTransition;
+
+        //keep looping as there is new groups are created
+        while (changed) {
+            vector<vector<Node*>> newGroups; //hold the new groups after each step in minimization
+            groupsTransition.clear();
+            int index = 0;
+            //go through each group to check if we can group any of its states
+            for (vector<Node*> group : groups) {
+                map<map<char, int>, vector<Node*>> equivalence; //hold the equivalence states with their common transitions
+
+                //go through each state in the group
+                for (Node* state : group) {
+                    map<char, int> transitionMap; //hold all transitions for each state with the groups (state S --> group i with input x)
+
+                    // Checking all transitions for the state
+                    for (const auto& transition : state->transitions) {
+
+                        //get the input char and the next state according the input
+                        char input = transition.first;
+                        vector<Node*> nextStates = transition.second;
+                        for(Node* nextState : nextStates) {
+                            for (size_t i = 0; i < groups.size(); ++i) {
+                                //get the index of the group that holds the next state, if found save it with
+                                if (find(groups[i].begin(), groups[i].end(), nextState) != groups[i].end()) {
+                                    transitionMap[input] = i;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    //save all the states of the same group with the same transition map in the same place
+                    equivalence[transitionMap].push_back(state);
+                }
+
+                // Adding states to new groups based on equivalence
+                for (const auto& eq : equivalence) {
+                    newGroups.push_back(eq.second);
+                    acceptingSates.push_back(false);
+                    for(Node* state1: eq.second){
+                        for (Node* state2: accepting){
+                            if(state1 == state2){
+                                acceptingSates.back() =true;
+                                break;
+                            }
+                        }
+                    }
+                    groupsTransition[index++] = eq.first;
+                }
+            }
+
+            //check if there was any change in number of groups if so stop the minimization
+            if(newGroups.size() == groups.size()){
+                changed = false;
+            }
+            //if there is new groups was created save them as the initial groups to start minimizing from the beginning
+            if (changed) {
+                groups = newGroups;
+            }
+        }
+
+
+        for(size_t i = 0; i < groupsTransition.size(); i++){
+            string s = to_string(i);
+            Node* temp = new Node(s);
+            temp -> acceptance = acceptingSates[i];
+            newNodes.push_back(temp);
+        }
+
+        // Outputting the minimized groups
+        for (size_t i = 0; i < groups.size(); ++i) {
+            if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
+                startState = newNodes[i];
+            }
+
+            cout << "Group " << i << ": ";
+            for (Node* state : groups[i]) {
+                cout << state->id << " ";
+            }
+            cout << endl;
+        }
+
+        for(auto g: groupsTransition){
+            int index = g.first;
+            map<char, int> transitions = g.second;
+
+            Node* current_state = newNodes[index];
+            for(auto trans: transitions){
+                current_state -> transitions[trans.first].push_back(newNodes[trans.second]);
+            }
+        }
+        DFA_start_node = *startState; // Update DFA_start_node
+        return newNodes;
+
     }
 };
