@@ -115,6 +115,26 @@ public:
         return res;
     }
 
+    static NFA* or_all_NFAs(const vector<NFA*>& nfas) {
+        vector<NFA*> cloned_nfas;
+
+        for(NFA* nfa : nfas){
+            cloned_nfas.push_back(nfa->clone());
+        }
+
+        Node* start = new Node(false);
+        Node* end = new Node(true);
+
+        for(NFA* nfa : cloned_nfas){
+            start->add_next_node(nfa->start_node);
+            nfa->end_node->acceptance = false;
+            nfa->end_node->add_next_node(end);
+        }
+        NFA* res = new NFA(start, end);
+        update_node_map(res);
+        return res;
+    }
+
 
 
     static void update_node_map(NFA*& nfa){
