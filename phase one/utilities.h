@@ -136,7 +136,10 @@ public:
     }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 94ca5262590f0c9249a5c4db56523e0dc9c572fb
     static void update_node_map(NFA*& nfa){
         nfa->node_map.clear();
         set<int> visited;

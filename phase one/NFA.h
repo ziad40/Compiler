@@ -72,4 +72,3 @@ public:
 };
 
 #endif // NFA_H
-
