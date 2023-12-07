@@ -170,6 +170,5 @@ class DFA{
             }
             printf("\n");
         }
-
     }
 };
