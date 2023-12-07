@@ -16,4 +16,5 @@ add_executable(project
         "DFA_test.cpp"
         parser.cpp
         lexical_analyzer.h
+        parser.h
 )

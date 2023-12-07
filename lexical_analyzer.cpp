@@ -14,16 +14,16 @@ vector<Node*> lexical_analysis(string relative_path){
 //    dfa.print_dfa();
 //    cout << "-------------------------------------------------------------------------------" << endl;
     vector<Node*> minimized_dfa = dfa.minimize();
-    cout << "--------------------------------------------------------------------------------" << endl;
-    for(Node* node : minimized_dfa){
-        cout << node->id << "   " << node->acceptance << "     " << endl;
-        for(auto &entry : node->transitions){
-            cout << entry.first << "->";
-            for(Node* next : entry.second){
-                cout << next->id << "   ";
-            }
-        }
-        cout<<endl;
-    }
+//    cout << "--------------------------------------------------------------------------------" << endl;
+//    for(Node* node : minimized_dfa){
+//        cout << node->id << "   " << node->acceptance << "     " << endl;
+//        for(auto &entry : node->transitions){
+//            cout << entry.first << "->";
+//            for(Node* next : entry.second){
+//                cout << next->id << "   ";
+//            }
+//        }
+//        cout<<endl;
+//    }
     return minimized_dfa;
 }
