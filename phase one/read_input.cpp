@@ -139,9 +139,6 @@ private:
                 }
             }else if(line[i] == '('){
                 reset_word(word, operands);
-                while(!operators.empty() && (operators.top() == '*' || operators.top() == '+')){
-                    do_one_operation(operands, operators);
-                }
                 operators.push('&');
                 operators.push(line[i]);
             }else if(line[i] == ')'){

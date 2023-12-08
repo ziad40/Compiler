@@ -34,8 +34,8 @@ public:
     }
 
     static NFA* concat_NFA(NFA* nfa11, NFA* nfa22){
-        NFA* nfa1 = nfa11->clone();
-        NFA* nfa2 = nfa22->clone();
+        NFA* nfa2 = nfa11->clone();
+        NFA* nfa1 = nfa22->clone();
         if (nfa1->end_node == nullptr || nfa2->start_node == nullptr) {
             std::cerr << "Assertion failed: nfa1.end_node != nullptr && nfa2.start_node != nullptr\n";
             return nullptr;
@@ -46,14 +46,14 @@ public:
         }
 
         nfa1->end_node->acceptance = false;
-//        nfa2->end_node->acceptance = true;
+//        nfa2->end_node->acceptance = false;
+
         nfa1->end_node->add_next_node(nfa2->start_node);
         NFA* res = new NFA(nfa1->start_node, nfa2->end_node);
 
         update_node_map(res);
         return res;
     }
-
 
     static NFA* star_NFA(NFA* nfa1){
         NFA* nfa = nfa1->clone();
