@@ -45,10 +45,10 @@ public:
             return nullptr;
         }
 
-        nfa1->end_node->acceptance = false;
-//        nfa2->end_node->acceptance = true;
-        nfa1->end_node->add_next_node(nfa2->start_node);
-        NFA* res = new NFA(nfa1->start_node, nfa2->end_node);
+        nfa2->end_node->acceptance = false;
+//        nfa1->end_node->acceptance = true;
+        nfa2->end_node->add_next_node(nfa1->start_node);
+        NFA* res = new NFA(nfa2->start_node, nfa1->end_node);
 
         update_node_map(res);
         return res;

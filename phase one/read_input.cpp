@@ -139,9 +139,6 @@ private:
                 }
             }else if(line[i] == '('){
                 reset_word(word, operands);
-                while(!operators.empty() && (operators.top() == '*' || operators.top() == '+')){
-                    do_one_operation(operands, operators);
-                }
                 operators.push('&');
                 operators.push(line[i]);
             }else if(line[i] == ')'){
@@ -234,6 +231,7 @@ private:
             }
             if(nfas.size() == 1){
                 nfas[0]->name = name;
+                nfas[0]->end_node->types.insert(name);
                 regular_definations[name] = nfas[0];
             } else {
                 NFA* result = utilities::or_NFA(nfas[0], nfas[1]);
@@ -242,6 +240,7 @@ private:
                 for (int n = 2; n < nfas.size(); n++) {
                     result = utilities::or_NFA(result, nfas[n]);
                 }
+                result->end_node->types.insert(name);
                 regular_definations[name] = result;
             }
 
@@ -263,42 +262,42 @@ private:
 };
 
 
-//int Node::counter = 1;
-//int main()
-//{
-//    read_input r;
-//    r.read_lines(R"(E:\4th-1st\Compilers\project\phase one\input_example.txt)");
-//    for(const string& s : r.Keywords){
-//        cout << s << "    " ;
-//    }
-//    cout << endl;
-//    for(const string& s : r.Punctuations){
-//        cout << s << "    " ;
-//    }
-//    cout << endl;
-//
-//    r.routing_nfa->printTree();
-//    for (const auto& it : r.regular_definations) {
-//        cout << "Regular Definition: " << it.first << endl;
-//        if (it.second != nullptr) {
-//            // Assuming your NFA class has a printNFA function
-//            it.second->printNFA();
-//        } else {
-//            cout << "NFA is nullptr" << endl;
-//        }
-//    }
-//
-//    cout << endl;
-//    for (const auto& it : r.regular_expressions) {
-//        cout << "Regular Expression: " << it.first << endl;
-//        if (it.second != nullptr) {
-//            // Assuming your NFA class has a printNFA function
-//            it.second->printNFA();
-//        } else {
-//            cout << "NFA is nullptr" << endl;
-//        }
-//    }
-//    cout << endl;
+int Node::counter = 1;
+int main()
+{
+    read_input r;
+    r.read_lines(R"(E:\4th-1st\Compilers\project\phase one\input_example.txt)");
+    for(const string& s : r.Keywords){
+        cout << s << "    " ;
+    }
+    cout << endl;
+    for(const string& s : r.Punctuations){
+        cout << s << "    " ;
+    }
+    cout << endl;
+
+    r.routing_nfa->printTree();
+    for (const auto& it : r.regular_definations) {
+        cout << "Regular Definition: " << it.first << endl;
+        if (it.second != nullptr) {
+            // Assuming your NFA class has a printNFA function
+            it.second->printNFA();
+        } else {
+            cout << "NFA is nullptr" << endl;
+        }
+    }
+
+    cout << endl;
+    for (const auto& it : r.regular_expressions) {
+        cout << "Regular Expression: " << it.first << endl;
+        if (it.second != nullptr) {
+            // Assuming your NFA class has a printNFA function
+            it.second->printNFA();
+        } else {
+            cout << "NFA is nullptr" << endl;
+        }
+    }
+    cout << endl;
 
     return 0;
 }

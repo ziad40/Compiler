@@ -12,3 +12,13 @@
 12	1017	7236404840041844	CMakeFiles/project.dir/phase_one/DFA.cpp.obj	947b3a3c4ca3688e
 5	2122	7236404851011988	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
 2123	2726	7236404857051996	project.exe	7ac9802c9d5a8566
+25	524	7237279831481057	CMakeFiles/project.dir/phase_one/lexical_analyzer.cpp.obj	87538d29417de553
+32	1378	7237279840037629	CMakeFiles/project.dir/phase_one/DFA.cpp.obj	947b3a3c4ca3688e
+5	2498	7237279851107810	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+2498	3446	7237279860637956	project.exe	7ac9802c9d5a8566
+6	2018	7237287053858970	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+2019	2933	7237287062955279	project.exe	7ac9802c9d5a8566
+6	2123	7237288244089078	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+2123	2842	7237288251209221	project.exe	7ac9802c9d5a8566
+5	2316	7237310144892634	CMakeFiles/project.dir/phase_one/read_input.cpp.obj	c38f389818fcf76f
+2316	3060	7237310152292635	project.exe	7ac9802c9d5a8566
