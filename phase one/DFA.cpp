@@ -79,6 +79,7 @@ class DFA{
             else{
                 Node* new_node = new Node(new_node_id);
                 is_accepted(new_node);
+                handle_node_type(new_node);
                 DFA_node_map[new_node_id] = new_node;
                 // just 1 node --------------------
                 n->transitions[entry.first].push_back(new_node);
@@ -130,6 +131,19 @@ class DFA{
         n->acceptance = false;
     }
 
+    void handle_node_type(Node* n){
+        vector<string> sub_nodes_id = get_sub_nodes_id(n->id);
+        for(const string& sub_node_id : sub_nodes_id){
+            Node* sub_node = nfa->node_map[sub_node_id];
+            if(sub_node->acceptance){
+                set<string> sub_node_types = sub_node->types;
+                for(const string& sub_node_type : sub_node_types){
+                    n->types.insert(sub_node_type);
+                }
+            }
+        }
+    }
+
     static vector<string> get_sub_nodes_id(const string& id) {
         std::vector<std::string> result;
         size_t start = 0;
@@ -164,6 +178,10 @@ class DFA{
                 continue;
             visited.insert(node->id);
             printf("\nState %s   %d",node->id.c_str(),node->acceptance);
+            cout << "\n" << "Types: ";
+            for(string type : node->types){
+                cout << type << "    ";
+            }
             printf("\nTransactions\n");
             for(auto &entry : node->transitions){
                 printf("\t%c -> ",entry.first);
