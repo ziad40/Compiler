@@ -17,6 +17,7 @@ public:
     Node* current_node = nullptr;
     bool prev_node_acceptance = false;
     bool current_node_acceptance = false;
+    vector<string> keywords = {"int","if", "else", "while", "boolean", "int", "float"};
 
     static string read_java_file(string path);
     void initialize(Node*& starting);

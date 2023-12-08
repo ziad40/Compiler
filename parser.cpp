@@ -48,8 +48,31 @@ void Parser::check_symbols(Node*& starting, char c){
 
 void Parser::print_node_type(Node*& node){
     string temp(token.begin(), token.end());
+    for (auto keyword: keywords){
+        if (temp == keyword){
+            cout << keyword  << endl;
+            return;
+        }
+    }
     for (auto type : node->types){
-        cout << type  << endl;
+        if (type != "" && type != "digit" && type != "letter"){
+            if (type == "addop"){
+                if ((temp == "+" || temp == "-")){
+                    cout << type  << endl;
+                    return;
+                }
+            }
+            else if (type == "mulop"){
+                if (temp == "*" || temp == "/"){
+                    cout << type  << endl;
+                    return;
+                }
+            }
+            else{
+                cout << type  << endl;
+                return;
+            }
+        }
     }
 }
 
