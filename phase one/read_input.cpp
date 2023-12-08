@@ -150,6 +150,9 @@ private:
                     do_one_operation(operands, operators);
                 }
                 operators.pop();
+                if(i+1 < line.size() && line[i+1] != '|' && line[i+1] != '*' && line[i+1] != '+'){
+                    operators.push('&');
+                }
             }else if(line[i] == ' '){
                 reset_word(word, operands);
                 while(!operators.empty() && (operators.top() == '*' || operators.top() == '+')){
@@ -169,6 +172,7 @@ private:
             abort();
         }
         operands.top()->name = name;
+        operands.top()->end_node->types.insert(name);
         if(type){
             regular_expressions[name] = operands.top();
         }else{

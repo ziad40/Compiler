@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <set>
 using namespace std;
 
 class Node{
@@ -14,6 +15,7 @@ public:
     string id;
     static int counter;
     bool acceptance;
+    set<string> types;
 
     explicit Node(map<char, vector<Node*>> transitions){
         this-> transitions = std::move(transitions);

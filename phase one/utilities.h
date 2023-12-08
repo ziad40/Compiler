@@ -46,10 +46,10 @@ public:
         }
 
         nfa1->end_node->acceptance = false;
-        nfa2->end_node->acceptance = true;
-
+//        nfa2->end_node->acceptance = true;
         nfa1->end_node->add_next_node(nfa2->start_node);
         NFA* res = new NFA(nfa1->start_node, nfa2->end_node);
+
         update_node_map(res);
         return res;
     }
@@ -67,7 +67,7 @@ public:
         nfa->end_node->add_next_node(nfa->start_node);
         start->add_next_node(end);
         start->add_next_node(nfa->start_node);
-        nfa->end_node->acceptance = false;
+//        nfa->end_node->acceptance = false;
         NFA* res = new NFA(start, end);
         update_node_map(res);
         return res;
@@ -108,8 +108,8 @@ public:
         nfa1->end_node->add_next_node(end);
         nfa2->end_node->add_next_node(end);
 
-        nfa1->end_node->acceptance = false;
-        nfa2->end_node->acceptance = false;
+//        nfa1->end_node->acceptance = false;
+//        nfa2->end_node->acceptance = false;
         NFA* res = new NFA(start, end);
         update_node_map(res);
         return res;
@@ -127,8 +127,10 @@ public:
 
         for(NFA* nfa : cloned_nfas){
             start->add_next_node(nfa->start_node);
-            nfa->end_node->acceptance = false;
+//            nfa->end_node->acceptance = false;
             nfa->end_node->add_next_node(end);
+            for(const string& x : nfa->end_node->types)
+                end->types.insert(x);
         }
         NFA* res = new NFA(start, end);
         update_node_map(res);
