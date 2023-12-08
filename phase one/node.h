@@ -50,6 +50,7 @@ public:
 
     Node* clone() const{
         Node* newNode = new Node(this->acceptance);
+        newNode->types = this->types;
         return newNode;
     }
 

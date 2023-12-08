@@ -110,6 +110,8 @@ public:
 
 //        nfa1->end_node->acceptance = false;
 //        nfa2->end_node->acceptance = false;
+        end->types.insert(nfa1->name);
+        end->types.insert(nfa2->name);
         NFA* res = new NFA(start, end);
         update_node_map(res);
         return res;
