@@ -1,3 +1,6 @@
-int x = 70 e b);
-boolean x = 0
-shn-bnpc-ozy
+int n = 3
+float f = 56.7;
+float f2 = 5.67E1
+x x,x 5 n
+if (f >50) { f = f2 / 2}
+else { f = f2 * 2}
