@@ -4,7 +4,7 @@ int Node::counter = 1;
 vector<Node*> lexical_analysis(string relative_path){
     read_input r;
     r.read_lines(relative_path);
-    NFA* s = r.routing_nfa;
+    NFA* s = r.regular_expressions["num"];
 //    cout << s->node_map.size();
 
     DFA dfa = DFA(s);

@@ -264,15 +264,15 @@ public:
                 // Adding states to new groups based on equivalence
                 for (const auto& eq : equivalence) {
                     newGroups.push_back(eq.second);
-                    acceptingSates.push_back(false);
-                    for(Node* state1: eq.second){
-                        for (Node* state2: accepting){
-                            if(state1 == state2){
-                                acceptingSates.back() =true;
-                                break;
-                            }
-                        }
-                    }
+//                    acceptingSates.push_back(false);
+//                    for(Node* state1: eq.second){
+//                        for (Node* state2: accepting){
+//                            if(state1 == state2){
+//                                acceptingSates.back() =true;
+//                                break;
+//                            }
+//                        }
+//                    }
                     groupsTransition[index++] = eq.first;
                 }
             }
@@ -288,21 +288,33 @@ public:
         }
 
 
-        for(size_t i = 0; i < groupsTransition.size(); i++){
-            string s = to_string(i);
-            Node* temp = new Node(s);
-            temp -> acceptance = acceptingSates[i];
-            newNodes.push_back(temp);
-        }
+//        for(size_t i = 0; i < groupsTransition.size(); i++){
+//            string s = to_string(i);
+//            Node* temp = new Node(s);
+//            temp -> acceptance = acceptingSates[i];
+//            newNodes.push_back(temp);
+//        }
 
         // Outputting the minimized groups
         for (size_t i = 0; i < groups.size(); ++i) {
+            string s = to_string(i);
+            Node* temp = new Node(s);
+//            temp -> acceptance = acceptingSates[i];
+            newNodes.push_back(temp);
+
             if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
                 startState = newNodes[i];
             }
-
             cout << "Group " << i << ": ";
             for (Node* state : groups[i]) {
+                for(Node* node_star : accepting){
+                    if(state == node_star){
+                        newNodes[i]->acceptance = true;
+                        for(const string& type_star : node_star->types) {
+                            newNodes[i]->types.insert(type_star);
+                        }
+                    }
+                }
                 cout << state->id << " ";
             }
             cout << endl;
