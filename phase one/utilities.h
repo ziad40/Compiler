@@ -128,11 +128,11 @@ public:
         for(NFA* nfa : cloned_nfas){
             start->add_next_node(nfa->start_node);
 //            nfa->end_node->acceptance = false;
-            nfa->end_node->add_next_node(end);
-            for(const string& x : nfa->end_node->types)
-                end->types.insert(x);
+//            nfa->end_node->add_next_node(end);
+//            for(const string& x : nfa->end_node->types)
+//                end->types.insert(x);
         }
-        NFA* res = new NFA(start, end);
+        NFA* res = new NFA(start, nullptr);
         update_node_map(res);
         return res;
     }

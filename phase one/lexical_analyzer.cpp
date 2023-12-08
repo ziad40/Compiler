@@ -8,7 +8,7 @@ int main(){
     string relative_path = "/media/elsharawy/Data/CSED/level 4 term 1/Compilers/compilers project/Compiler/phase one/input_example.txt";
     read_input r;
     r.read_lines(relative_path);
-    NFA* s = r.regular_expressions["addop"];
+    NFA* s = r.routing_nfa;
 //    cout << s->node_map.size();
 
     DFA dfa = DFA(s);
