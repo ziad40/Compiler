@@ -59,7 +59,7 @@ void Parser::print_node_type(Node*& node){
         }
     }
     for (auto type : node->types){
-        if (type != "" && type != "digit" && type != "letter"){
+        if (type != "" && type != "digit" && type != "digits" && type != "letter"){
             if (type == "addop"){
                 if ((temp == "+" || temp == "-")){
                     cout << type  << endl;
@@ -68,6 +68,11 @@ void Parser::print_node_type(Node*& node){
             }
             else if (type == "mulop"){
                 if (temp == "*" || temp == "/"){
+                    cout << type  << endl;
+                    return;
+                }
+            }else if (type == "assign"){
+                if (temp == "="){
                     cout << type  << endl;
                     return;
                 }
@@ -83,8 +88,9 @@ void Parser::print_node_type(Node*& node){
 void Parser::parse(vector<Node *> dfa, string path){
     string file = read_java_file(path);
     initialize(dfa[0]);
-
+    bool not_more = true;
     for(char c : file){
+        not_more = true;
         bool symbols = (c == ',' || c == ';');
         bool spaces = (c == '\t' || c == ' ' || c == '\n');
         bool brackets = (c == '(' || c == '{' || c == '}' || c == ')');
@@ -100,6 +106,7 @@ void Parser::parse(vector<Node *> dfa, string path){
         for(auto &entry : current_node->transitions){
             char t = entry.first;
             if(t == c){
+                not_more = false;
                 token.push_back(c);
                 prev_node = current_node;
                 prev_node_acceptance = prev_node->acceptance;
@@ -108,7 +115,6 @@ void Parser::parse(vector<Node *> dfa, string path){
                 break;
             }
         }
-
         if (symbols && current_node_acceptance){
             check_symbols(dfa[0], c);
             continue;
@@ -116,8 +122,8 @@ void Parser::parse(vector<Node *> dfa, string path){
         else if (symbols && !current_node_acceptance){
             cout << "error" << endl;
         }
-        if (prev_node_acceptance && !current_node_acceptance){
-            print_node_type(prev_node);
+        if (not_more && current_node_acceptance){
+            print_node_type(current_node);
             initialize(dfa[0]);
             continue;
         }

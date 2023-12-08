@@ -1,4 +1,3 @@
-int sum, count, pass, mnt;
-while (pass != 10) {
-    pass = pass + 1;
-}
+int x = 70 e b);
+boolean x = 0
+shn-bnpc-ozy
