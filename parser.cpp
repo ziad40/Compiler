@@ -115,6 +115,10 @@ void Parser::parse(vector<Node *> dfa, string path){
                 break;
             }
         }
+        if(symbols && token.size() == 0){
+            check_symbols(dfa[0], c);
+            continue;
+        }
         if (symbols && current_node_acceptance){
             check_symbols(dfa[0], c);
             continue;
