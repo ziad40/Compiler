@@ -23,6 +23,7 @@ public:
     void check_spaces(Node*& starting);
     void check_brackets(Node*& starting, char c);
     void check_symbols(Node*& starting, char c);
+    void print_node_type(Node*&);
     void parse(vector<Node *> dfa, string file);
 };
 

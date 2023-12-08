@@ -23,10 +23,7 @@ void Parser::initialize(Node*& starting){
 
 void Parser::check_spaces(Node*& starting){
     if(current_node_acceptance){
-        string temp(token.begin(), token.end());
-        for (auto type : current_node->types){
-            cout << type  << endl;
-        }
+        print_node_type(current_node);
         initialize(starting);
     }else if (!current_node_acceptance && token.size() != 0){
         string temp(token.begin(), token.end());
@@ -37,22 +34,23 @@ void Parser::check_spaces(Node*& starting){
 
 void Parser::check_brackets(Node*& starting, char c){
     if(current_node_acceptance){
-        string temp(token.begin(), token.end());
-        for (auto type : current_node->types){
-            cout << type  << endl;
-        }
+        print_node_type(current_node);
         initialize(starting);
     }
     cout << c << endl;
 }
 
 void Parser::check_symbols(Node*& starting, char c){
-    string temp(token.begin(), token.end());
-    for (auto type : current_node->types){
-        cout << type  << endl;
-    }
+    print_node_type(current_node);
     cout << c << endl;
     initialize(starting);
+}
+
+void Parser::print_node_type(Node*& node){
+    string temp(token.begin(), token.end());
+    for (auto type : node->types){
+        cout << type  << endl;
+    }
 }
 
 void Parser::parse(vector<Node *> dfa, string path){
@@ -92,10 +90,7 @@ void Parser::parse(vector<Node *> dfa, string path){
             cout << "error" << endl;
         }
         if (prev_node_acceptance && !current_node_acceptance){
-            string temp(token.begin(), token.end() - 1);
-            for (auto type : prev_node->types){
-                cout << type  << endl;
-            }
+            print_node_type(prev_node);
             initialize(dfa[0]);
             continue;
         }
