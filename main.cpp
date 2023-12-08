@@ -2,9 +2,10 @@
 int main(int argc, char* argv[])
 {
     string relative_path = "../input_example.txt";
-    vector<Node*> dfa = lexical_analysis(relative_path);
+    read_input r;
+    vector<Node*> dfa = lexical_analysis(relative_path, r);
     string file = "../Main.java";
-    Parser parser;
+    Parser parser(r);
     parser.parse(dfa, file);
     return 0;
 }

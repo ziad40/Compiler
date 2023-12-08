@@ -1,5 +1,9 @@
 #include "parser.h"
 
+
+Parser::Parser(read_input r) {
+    keywords = r.Keywords;
+}
 string Parser::read_java_file(string path)
 {
     ifstream f(path);
