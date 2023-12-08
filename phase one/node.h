@@ -14,6 +14,7 @@ public:
     string id;
     static int counter;
     bool acceptance;
+    vector<string> types;
 
     explicit Node(map<char, vector<Node*>> transitions){
         this-> transitions = std::move(transitions);

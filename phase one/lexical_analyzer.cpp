@@ -20,6 +20,7 @@ int main(){
     vector<Node*> minimized_dfa = dfa.minimize();
     cout << "--------------------------------------------------------------------------------" << endl;
     dfa.print_dfa();
+    cout << "-----------------------------------------------------------------------------------" << endl;
     for(Node* node : minimized_dfa){
         cout << node->id << "   " << node->acceptance << "     " << endl;
         for(auto &entry : node->transitions){
