@@ -11,18 +11,18 @@
 using namespace std;
 
 class DFA{
-    public:
-        NFA* nfa;
-        Node DFA_start_node;
-        map<string, Node*> DFA_node_map;
+public:
+    NFA* nfa;
+    Node DFA_start_node;
+    map<string, Node*> DFA_node_map;
 
-        DFA(NFA* final_nfa){
-            nfa = final_nfa;
-            string start_node_id = generate_node_id(get_eq_epsilon_neighbors(final_nfa->start_node));
-            DFA_start_node = Node(start_node_id);
-            is_accepted(&DFA_start_node);
-            DFA_node_map[start_node_id] = &DFA_start_node;
-        }
+    DFA(NFA* final_nfa){
+        nfa = final_nfa;
+        string start_node_id = generate_node_id(get_eq_epsilon_neighbors(final_nfa->start_node));
+        DFA_start_node = Node(start_node_id);
+        is_accepted(&DFA_start_node);
+        DFA_node_map[start_node_id] = &DFA_start_node;
+    }
 
     Node* convert_to_DFA(){
         queue<Node*> queue;
@@ -79,6 +79,7 @@ class DFA{
             else{
                 Node* new_node = new Node(new_node_id);
                 is_accepted(new_node);
+                handle_node_type(new_node);
                 DFA_node_map[new_node_id] = new_node;
                 // just 1 node --------------------
                 n->transitions[entry.first].push_back(new_node);
@@ -130,6 +131,19 @@ class DFA{
         n->acceptance = false;
     }
 
+    void handle_node_type(Node* n){
+        vector<string> sub_nodes_id = get_sub_nodes_id(n->id);
+        for(const string& sub_node_id : sub_nodes_id){
+            Node* sub_node = nfa->node_map[sub_node_id];
+            if(sub_node->acceptance){
+                set<string> sub_node_types = sub_node->types;
+                for(const string& sub_node_type : sub_node_types){
+                    n->types.insert(sub_node_type);
+                }
+            }
+        }
+    }
+
     static vector<string> get_sub_nodes_id(const string& id) {
         std::vector<std::string> result;
         size_t start = 0;
@@ -164,6 +178,10 @@ class DFA{
                 continue;
             visited.insert(node->id);
             printf("\nState %s   %d",node->id.c_str(),node->acceptance);
+            cout << "\n" << "Types: ";
+            for(string type : node->types){
+                cout << type << "    ";
+            }
             printf("\nTransactions\n");
             for(auto &entry : node->transitions){
                 printf("\t%c -> ",entry.first);
@@ -278,17 +296,17 @@ class DFA{
         }
 
         // Outputting the minimized groups
-//        for (size_t i = 0; i < groups.size(); ++i) {
-//            if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
-//                startState = newNodes[i];
-//            }
-//
-//            cout << "Group " << i << ": ";
-//            for (Node* state : groups[i]) {
-//                cout << state->id << " ";
-//            }
-//            cout << endl;
-//        }
+        for (size_t i = 0; i < groups.size(); ++i) {
+            if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
+                startState = newNodes[i];
+            }
+
+            cout << "Group " << i << ": ";
+            for (Node* state : groups[i]) {
+                cout << state->id << " ";
+            }
+            cout << endl;
+        }
 
         for(auto g: groupsTransition){
             int index = g.first;

@@ -41,6 +41,7 @@ public:
                 mapping[it.second]->add_next_node(mapping[it2]);
             }
         }
+        nfa->name = this->name;
         nfa->start_node = mapping[this->start_node];
         nfa->end_node = mapping[this->end_node];
         return nfa;

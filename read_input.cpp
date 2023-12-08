@@ -139,9 +139,6 @@ private:
                 }
             }else if(line[i] == '('){
                 reset_word(word, operands);
-                while(!operators.empty() && (operators.top() == '*' || operators.top() == '+')){
-                    do_one_operation(operands, operators);
-                }
                 operators.push('&');
                 operators.push(line[i]);
             }else if(line[i] == ')'){
@@ -150,6 +147,9 @@ private:
                     do_one_operation(operands, operators);
                 }
                 operators.pop();
+                if(i+1 < line.size() && line[i+1] != '|' && line[i+1] != '*' && line[i+1] != '+'){
+                    operators.push('&');
+                }
             }else if(line[i] == ' '){
                 reset_word(word, operands);
                 while(!operators.empty() && (operators.top() == '*' || operators.top() == '+')){
@@ -169,6 +169,7 @@ private:
             abort();
         }
         operands.top()->name = name;
+        operands.top()->end_node->types.insert(name);
         if(type){
             regular_expressions[name] = operands.top();
         }else{
@@ -230,6 +231,7 @@ private:
             }
             if(nfas.size() == 1){
                 nfas[0]->name = name;
+                nfas[0]->end_node->types.insert(name);
                 regular_definations[name] = nfas[0];
             } else {
                 NFA* result = utilities::or_NFA(nfas[0], nfas[1]);
@@ -238,6 +240,7 @@ private:
                 for (int n = 2; n < nfas.size(); n++) {
                     result = utilities::or_NFA(result, nfas[n]);
                 }
+                result->end_node->types.insert(name);
                 regular_definations[name] = result;
             }
 
