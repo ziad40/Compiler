@@ -4,5 +4,5 @@
 
 #include "read_input.cpp"
 #include "DFA.cpp"
-vector<Node*> lexical_analysis(string relative_path, read_input r);
+vector<Node*> lexical_analysis(string relative_path, read_input& r);
 #endif //LEXICAL_ANALYZER_H
