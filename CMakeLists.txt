@@ -8,7 +8,7 @@ include_directories("phase one")
 add_executable(project
         "NFA.h"
         "node.h"
-        "read_input.cpp"
+        "lexical_rules.cpp"
         "utilities.h"
         "lexical_analyzer.cpp"
         "DFA.cpp"
