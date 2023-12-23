@@ -1811,10 +1811,10 @@ void yyfree (void * ptr )
 
 
 int main(int argc, char* argv[]) {
-     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
-        return EXIT_FAILURE;
-    }
+     //if (argc != 2) {
+       // fprintf(stderr, "Usage: %s <input_file>\n", argv[0]);
+        //return EXIT_FAILURE;
+    //}
 
     FILE* file = fopen(argv[1], "r");
     //yyin = fopen(argv[1], "r");

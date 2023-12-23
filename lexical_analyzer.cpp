@@ -15,18 +15,6 @@ vector<Node *> lexical_analysis(string relative_path, read_input &r)
     cout << "-------------------------------------------------------------------------------" << endl;
     vector<Node *> minimized_dfa = dfa.minimize();
     cout << "--------------------------------------------------------------------------------" << endl;
-    //    dfa.print_dfa();
-    //    cout << "-----------------------------------------------------------------------------------" << endl;
-    //    for(Node* node : minimized_dfa){
-    //        cout << node->id << "   " << node->acceptance << "     " << endl;
-    //        for(auto &entry : node->transitions){
-    //            cout << entry.first << "->";
-    //            for(Node* next : entry.second){
-    //                cout << next->id << "   ";
-    //            }
-    //        }
-    //        cout<<endl;
-    //    }
     vector<Node *> nn;
     for (auto &entry : dfa.DFA_node_map)
         nn.push_back(entry.second);

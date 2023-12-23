@@ -54,8 +54,6 @@ public:
                 for(Node* next : entry.second){
                     current_node_transactions[entry.first]+=next->id+',';
                 }
-//                if(!current_node_transactions[entry.first].empty())
-//                    current_node_transactions[entry.first].erase(current_node_transactions[entry.first].size() - 1);
             }
         }
 
@@ -278,15 +276,6 @@ public:
                 // Adding states to new groups based on equivalence
                 for (const auto& eq : equivalence) {
                     newGroups.push_back(eq.second);
-//                    acceptingSates.push_back(false);
-//                    for(Node* state1: eq.second){
-//                        for (Node* state2: accepting){
-//                            if(state1 == state2){
-//                                acceptingSates.back() =true;
-//                                break;
-//                            }
-//                        }
-//                    }
                     groupsTransition[index++] = eq.first;
                 }
             }
@@ -302,18 +291,10 @@ public:
         }
 
 
-//        for(size_t i = 0; i < groupsTransition.size(); i++){
-//            string s = to_string(i);
-//            Node* temp = new Node(s);
-//            temp -> acceptance = acceptingSates[i];
-//            newNodes.push_back(temp);
-//        }
-
         // Outputting the minimized groups
         for (size_t i = 0; i < groups.size(); ++i) {
             string s = to_string(i);
             Node* temp = new Node(s);
-//            temp -> acceptance = acceptingSates[i];
             newNodes.push_back(temp);
 
             if(find(groups[i].begin(), groups[i].end(), startState) != groups[i].end()){
