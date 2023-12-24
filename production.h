@@ -27,11 +27,15 @@ public:
         this->terminal = terminal;
         this->name = name;
         this->epsilon = false;
+        has_epsilon_first = false;
+        first_found = false;
     }
     rule(){
         this->epsilon = true;
         this->terminal = true;
         this->name = "epsilon";
+        has_epsilon_first = false;
+        first_found = false;
     }
     void add_productions(const vector<rule*>& p){
         this->productions.push_back(p);

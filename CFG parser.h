@@ -96,6 +96,8 @@ public:
                 name_of_production += all_lines[i];
             }
         }
+        string s = "$";
+        productions[0]->follow.insert(new rule(s, true));
     }
 };
 #endif //PROJECT_CFG_PARSER_H
