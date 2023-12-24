@@ -4,52 +4,35 @@ using namespace std;
 
 int main(){
 
-    rule r1; 
-    r1.name = "S";
+    rule r1 = rule("S", false);
     r1.epsilon = false;
-    r1.terminal = false;
     
-    rule r2;
-    r2.name = "i";
+    rule r2 = rule("i", true);
     r2.epsilon = false;
-    r2.terminal = true;
 
-    rule r3;
-    r3.name = "C";
+
+    rule r3 = rule("C", false);
     r3.epsilon = false;
-    r3.terminal = false;
 
 
-    rule r4; 
-    r4.name = "t";
+    rule r4 = rule("t", true);
     r4.epsilon = false;
-    r4.terminal = true;
 
 
-    rule r5;
-    r5.name = "E";
+    rule r5 = rule("E", false);
     r5.epsilon = false;
-    r5.terminal = false;
 
-    rule r6;
-    r6.name = "a";
+    rule r6 = rule("a", true);
     r6.epsilon = false;
-    r6.terminal = true;
 
-    rule r7;
-    r7.name = "e";
+    rule r7 = rule("e", true);
     r7.epsilon = false;
-    r7.terminal = true;
 
-    rule r8;
-    r8.name = "epsilon";
+    rule r8 = rule("epsilon", true);
     r8.epsilon = true;
-    r8.terminal = true;
 
-    rule r9;
-    r9.name = 'b';
+    rule r9 = rule("b", true);
     r9.epsilon = false;
-    r9.terminal = true;
 
 
     vector<vector<rule*>> p1;

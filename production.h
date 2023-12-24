@@ -14,9 +14,20 @@ class rule{
 public:
     string name;
     bool terminal;
-    set<rule> first;
-    set<rule> follow;
-    vector<vector<rule>> productions;
+    bool has_epsilon_first;
+    bool epsilon;
+    bool first_found;
+    set<rule*> first;
+    set<rule*> follow;
+    vector<vector<rule*>> productions;
+
+    rule(string name, bool terminal){
+        this->terminal = terminal;
+        this->name = name;
+    }
+    void add_productions(const vector<rule*> p){
+        this->productions.push_back(p);
+    }
 
     void get_first(){
 
@@ -53,8 +64,6 @@ public:
                     }
                 }
             }
-
-
             first_found = true;
         }
     }
