@@ -1,5 +1,5 @@
-#ifndef PROJECT_CFG_PARSER_TEST_H
-#define PROJECT_CFG_PARSER_TEST_H
+#ifndef PROJECT_CFG_PARSER_H
+#define PROJECT_CFG_PARSER_H
 
 #include <string>
 #include <vector>
@@ -98,4 +98,4 @@ public:
 
 };
 
-#endif //PROJECT_CFG_PARSER_TEST_H
+#endif //PROJECT_CFG_PARSER_H

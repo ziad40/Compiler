@@ -16,9 +16,15 @@ public:
     vector<rule> first;
     vector<rule> follow;
     vector<vector<rule>> productions;
-
+    rule(string name, bool terminal){
+        this->terminal = terminal;
+        this->name = name;
+    }
+    void add_productions(const vector<rule> p){
+        this->productions.push_back(p);
+    }
     void get_first(){
-        
+
     }
 
     void get_follow(){
