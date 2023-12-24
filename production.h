@@ -14,62 +14,9 @@ class rule{
 public:
     string name;
     bool terminal;
-    bool has_epsilon_first;
-    bool epsilon;
-    bool first_found;
-    set<rule*> first;
-    set<rule*> follow;
-    vector<vector<rule*>> productions;
-    
-     bool operator<(const rule& other) const {
-        // Compare based on the 'name' attribute
-        return name < other.name;
-    }
-
-   /* void get_first(set<rule>& visited) {
-        if (!first_found) {
-            visited.insert(*this); // To handle cyclic dependencies
-            
-            if (terminal) {
-                first.push_back(*this);
-            } else {
-                for (auto p : productions) {
-                    bool allHaveEpsilon = true;
-                    for (auto r : p) {
-                        if (r.first_found) {
-                            // Avoid infinite recursion using visited set
-                            if (visited.find(r) != visited.end()) {
-                                continue;
-                            }
-                        }
-                        r.get_first(visited);
-                        if (r.epsilon) {
-                            for (auto f : r.first) {
-                                if (f.epsilon) continue;
-                                first.push_back(f);
-                            }
-                        } else {
-                            allHaveEpsilon = false;
-                            for (auto f : r.first) {
-                                first.push_back(f);
-                            }
-                            break;
-                        }
-                    }
-                    if (allHaveEpsilon) {
-                        has_epsilon_first = true;
-                    }
-                }
-            }
-
-            first_found = true;
-        }
-    }
-
-    void calculate_first() {
-        //set<rule> visited; // To handle cyclic dependencies
-        //get_first();
-    }*/
+    set<rule> first;
+    set<rule> follow;
+    vector<vector<rule>> productions;
 
     void get_first(){
 
