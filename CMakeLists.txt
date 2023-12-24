@@ -18,4 +18,8 @@ add_executable(project
         lexical_analyzer.h
         parser.h
         main.cpp
-        "CFG parser.h" production.h "CFG parser.cpp")
+        "CFG parser.h"
+        production.h
+        "CFG parser.cpp"
+        parsing_table.h
+)

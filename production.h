@@ -35,14 +35,14 @@ public:
     void get_first(){
 
         if(!(this -> first_found)){
-            //terminals has them selves as first 
+            //terminals has themselves as first
             if(this -> terminal){
                 this -> first.insert(this);
             }
             else{
-                //go through all productes and if they are non terminals get their first otherwise the terminal is the first
+                //go through all products and if they are non-terminals get their first otherwise the terminal is the first
                 for(auto p: this->productions){
-                    //recursivly calculate the first of all needed productions 
+                    //recursively calculate the first of all needed productions
                     if(p[0]-> first.size() == 0){
                         p[0] -> get_first();
                     }
@@ -77,7 +77,7 @@ public:
 
 
 
-   
+
 
 
     void get_follow(){
