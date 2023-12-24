@@ -8,6 +8,8 @@
 #include <string>
 #include <vector>
 #include <set>
+#include <map>
+
 using namespace std;
 
 class rule{
@@ -20,6 +22,7 @@ public:
     set<rule*> first;
     set<rule*> follow;
     vector<vector<rule*>> productions;
+    map<rule*, vector<rule*>> first_to_expression;
 
     rule(string name, bool terminal){
         this->terminal = terminal;
@@ -48,6 +51,7 @@ public:
                     if(p[0]->terminal){
                         set<rule*>::iterator it = p[0]-> first.begin();
                         this->first.insert(*it);
+                        this->first_to_expression[*it] = p;
                     }
 
                     if(p[0]->epsilon)
@@ -56,11 +60,14 @@ public:
                     if(!(p[0]->terminal) && i < p.size()){
                         for(rule* r: p[0]->first){
                             this-> first.insert(r);
+                            this-> first_to_expression[r]= p;
                         }
                         while(p[i]->has_epsilon_first)
                         i++;
-                        for(rule* r: p[i]->first)
-                            this -> first.insert(r);
+                        for(rule* r: p[i]->first) {
+                            this->first.insert(r);
+                            this->first_to_expression[r] = p;
+                        }
                     }
                 }
             }
