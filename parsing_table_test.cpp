@@ -5,10 +5,12 @@ using namespace std;
 
 void example1();
 void example2();
+void example3();
 
 int main(){
 //    example1();
     example2();
+//    example3();
     return 0;
 }
 
@@ -327,6 +329,117 @@ void example2(){
     Terminals.insert(dollar);
 
     parsing_table pt = parsing_table(NT, Terminals);
+    pt.get_parsing_table();
+    pt.print_parsing_table();
+    cout << "\nDone";
+}
+
+void example3(){
+    string name = "eps";
+    rule* eps = new rule(name,true);
+    eps->epsilon = true;
+    name = "$";
+    rule* dollar = new rule(name, true);
+    name = "c";
+    rule* c = new rule(name, true);
+    name = "d";
+    rule* d = new rule(name, true);
+    name = "e";
+    rule* e = new rule(name, true);
+    name = "a";
+    rule* a = new rule(name, true);
+    name = "b";
+    rule* b = new rule(name, true);
+
+    name = "S";
+    rule* S = new rule(name, false);
+    S->has_epsilon_first = true;
+    name = "A";
+    rule* A = new rule(name, false);
+
+    //first
+    S->first.insert(a);
+    S->first.insert(c);
+    S->first.insert(e);
+    S->first.insert(eps);
+
+    A->first.insert(a);
+    A->first.insert(c);
+
+    // follow
+    S->follow.insert(dollar);
+
+    A->follow.insert(b);
+    A->follow.insert(d);
+
+
+    // productions
+    vector<rule*> prodS1;
+    prodS1.push_back(A);
+    prodS1.push_back(b);
+    prodS1.push_back(S);
+
+    vector<rule*> prodS2;
+    prodS2.push_back(e);
+
+    vector<rule*> prodS3;
+    prodS3.push_back(eps);
+
+    S->productions.push_back(prodS1);
+    S->productions.push_back(prodS2);
+    S->productions.push_back(prodS3);
+
+    vector<rule*> prodA1;
+    prodA1.push_back(a);
+
+    vector<rule*> prodA2;
+    prodA2.push_back(c);
+    prodA2.push_back(A);
+    prodA2.push_back(d);
+
+    A->productions.push_back(prodA1);
+    A->productions.push_back(prodA2);
+
+    // first 2 exp
+    vector<rule*> first2expS1;
+    first2expS1.push_back(A);
+    first2expS1.push_back(b);
+    first2expS1.push_back(S);
+
+    vector<rule*> first2expS2;
+    first2expS2.push_back(e);
+
+    vector<rule*> first2expS3;
+    first2expS3.push_back(eps);
+
+    S->first_to_expression[a] = first2expS1;
+    S->first_to_expression[c] = first2expS1;
+    S->first_to_expression[e] = first2expS2;
+
+    vector<rule*> first2expA1;
+    first2expA1.push_back(a);
+
+    vector<rule*> first2expA2;
+    first2expA2.push_back(c);
+    first2expA2.push_back(A);
+    first2expA2.push_back(d);
+
+    A->first_to_expression[a] = first2expA1;
+    A->first_to_expression[c] = first2expA2;
+
+    set<rule*> NT;
+    set<rule*> T;
+    NT.insert(S);
+    NT.insert(A);
+
+    T.insert(dollar);
+    T.insert(c);
+    T.insert(d);
+    T.insert(e);
+    T.insert(a);
+    T.insert(b);
+
+    parsing_table pt = parsing_table(NT, T);
     pt.get_parsing_table();
     pt.print_parsing_table();
     cout << "\nDone";

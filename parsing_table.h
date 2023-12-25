@@ -20,6 +20,12 @@ public:
         this->NT = std::move(NT);
         this->T = std::move(T);
         isFailed = false;
+
+        for(rule* non_terminal : this->NT) {
+            for(rule* terminal : this->T){
+                status_map[non_terminal][terminal] = "Error";
+            }
+        }
     }
 
     void get_parsing_table(){
@@ -35,6 +41,8 @@ public:
             }
         }
 
+
+
         for(rule* non_terminal : NT){
             // S -> iCtSE | a
             for(rule* first_terminal : non_terminal->first){
@@ -49,6 +57,7 @@ public:
                     isFailed = true;
                 }
                 parsing_map[non_terminal][first_terminal].push_back(exp);
+                status_map[non_terminal][first_terminal] = "Production";
 
                 if(has_epsilon_first(exp)){
                     for(rule* follow_terminal : non_terminal->follow){
@@ -56,7 +65,15 @@ public:
                             isFailed = true;
                         }
                         parsing_map[non_terminal][follow_terminal].push_back(exp);
+                        status_map[non_terminal][follow_terminal] = "Production";
+
                     }
+                }
+
+                // add sync
+                for(rule* follow_terminal : non_terminal->follow){
+                    if(status_map[non_terminal][follow_terminal] != "Production")
+                        status_map[non_terminal][follow_terminal] = "Sync";
                 }
             }
 
@@ -71,6 +88,7 @@ public:
                         isFailed = true;
                     }
                     parsing_map[non_terminal][follow_terminal].push_back(vec);
+                    status_map[non_terminal][follow_terminal] = "Production";
                 }
             }
         }
@@ -105,8 +123,9 @@ public:
             map<rule*, vector<vector<rule*>>> map = entry.second;
             for(rule* terminal : T){
                 int dist = 12;
-                if(map[terminal].empty()){
-                    cout << "Error";
+//                if(map[terminal].empty()){
+                if(status_map[non_terminal][terminal] != "Production"){
+                    cout << status_map[non_terminal][terminal];
                     cout << "\t\t";
                     continue;
                 }
