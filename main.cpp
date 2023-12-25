@@ -97,7 +97,7 @@ void Parser::print_node_type(Node*& node){
 
 void Parser::write_output_file() const{
     ofstream file;
-    file.open ("output.txt");
+    file.open ("../output.txt");
     file << output;
     file.close();
 }
@@ -169,17 +169,10 @@ void Parser::parse(vector<Node *> dfa, string path, Node* start_point){
 }
 
 
-
-
-
-
-
-
-
 int Node::counter = 1;
 int main(int argc, char* argv[])
 {
-    string relative_path = "input_example.txt";
+    string relative_path = "../input_example.txt";
     read_input r;
 
 
@@ -206,7 +199,7 @@ int main(int argc, char* argv[])
     cout <<"minimzed finished, \n" << "nn.size: " << nn.size()<<endl;
     cout << "first node id: " << dfa_2.DFA_start_node.id << endl;
     //vector<Node*> dfa = lexical_analysis(relative_path, r);
-    string file = "Main.java";
+    string file = "../Main.java";
     Parser parser(r);
     parser.parse(nn, file, &dfa_2.DFA_start_node);
     return 0;

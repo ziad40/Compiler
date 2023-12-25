@@ -3,7 +3,7 @@
 //
 #include "CFG parser.h"
 #include "parsing_table.h"
-
+/*
 int main(int argc, char* argv[]){
     string relative_path = "../cleaned.txt";
     CFG_parser ob;
@@ -19,4 +19,4 @@ int main(int argc, char* argv[]){
     cout << "\nDone";
     cout << "\ncompiled successfully" << endl;
     return 0;
-}
+}*/

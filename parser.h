@@ -30,7 +30,7 @@ public:
     void check_symbols(Node*& starting, char c);
     void print_node_type(Node*&);
     void write_output_file() const;
-    void parse(vector<Node *> dfa, string file);
+    void parse(vector<Node *> dfa, string file, Node* start_point);
 };
 
 #endif //PARSER_H
