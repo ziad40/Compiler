@@ -80,7 +80,8 @@ public:
                                 this->first_to_expression[r] = p;
                             }
                             if(i == p.size()-1){
-                                rule temp = rule("epsilon", true);
+                                string name = "epsilon";
+                                rule temp = rule(name, true);
                                 temp.epsilon = true;
                                 this->first.insert(&temp);
                                 this-> has_epsilon_first = true;

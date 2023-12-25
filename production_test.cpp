@@ -3,35 +3,42 @@ using namespace std;
 #include "production.h"
 
 void example1(){
-    rule r1 = rule("S", false);
+    string name = "S";
+    rule r1 = rule(name, false);
     r1.epsilon = false;
-    r1.follow.insert(new rule("$", false));
+    name = "$";
+    r1.follow.insert(new rule(name, false));
 
-    rule r2 = rule("i", true);
+    name = "i";
+    rule r2 = rule(name, true);
     r2.epsilon = false;
 
-
-    rule r3 = rule("C", false);
+    name = "C";
+    rule r3 = rule(name, false);
     r3.epsilon = false;
 
-
-    rule r4 = rule("t", true);
+    name = "t";
+    rule r4 = rule(name, true);
     r4.epsilon = false;
 
-
-    rule r5 = rule("E", false);
+    name = "E";
+    rule r5 = rule(name, false);
     r5.epsilon = false;
 
-    rule r6 = rule("a", true);
+    name = "a";
+    rule r6 = rule(name, true);
     r6.epsilon = false;
 
-    rule r7 = rule("e", true);
+    name = "e";
+    rule r7 = rule(name, true);
     r7.epsilon = false;
 
-    rule r8 = rule("epsilon", true);
+    name = "epsilon";
+    rule r8 = rule(name, true);
     r8.epsilon = true;
 
-    rule r9 = rule("b", true);
+    name = "b";
+    rule r9 = rule(name, true);
     r9.epsilon = false;
 
 
