@@ -36,6 +36,7 @@ private:
                 if(table.find(non_terminal) == table.end())
                     table[non_terminal] = new rule(non_terminal, false);
                 cur_prods.push_back(table[non_terminal]);
+                NonTerminal.insert(table[non_terminal]);
             }
             non_terminal = "";
         }
@@ -43,6 +44,7 @@ private:
             if(table.find(terminal) == table.end())
                 table[terminal] = new rule(terminal, true);
             cur_prods.push_back(table[terminal]);
+            Terminals.insert(table[terminal]);
             terminal = "";
         }
     }
@@ -81,6 +83,8 @@ private:
     }
 public:
     vector<rule*> productions;
+    set<rule*> Terminals;
+    set<rule*> NonTerminal;
     void read_lines(const string& rules_file_path){
         get_lines(rules_file_path);
         string name_of_production;
