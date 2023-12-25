@@ -4,6 +4,7 @@
 #include <vector>
 #include <set>
 #include <map>
+#include <fstream>
 
 using namespace std;
 
@@ -112,20 +113,32 @@ public:
     }
 
     void print_parsing_table(){
+        string csvFilePath = "../parsing table.csv";
+        ofstream outputFile(csvFilePath);
+        if (!outputFile.is_open()) {
+            cout << "Error, can't open file";
+            return;
+        }
         cout << endl;
+        outputFile << "\t";
         cout << "\t\t\t";
-        for(rule* terminal : T)
+        for(rule* terminal : T) {
             cout << terminal->name << "\t\t\t";
+            outputFile << terminal->name << "\t";
+        }
         for (auto &entry : parsing_map) {
             cout << endl;
+            outputFile << endl;
             rule* non_terminal = entry.first;
             cout << non_terminal->name << "\t\t\t";
+            outputFile << non_terminal->name << "\t";
             map<rule*, vector<vector<rule*>>> map = entry.second;
             for(rule* terminal : T){
                 int dist = 12;
 //                if(map[terminal].empty()){
                 if(status_map[non_terminal][terminal] != "Production"){
                     cout << status_map[non_terminal][terminal];
+                    outputFile << status_map[non_terminal][terminal] << "\t";
                     cout << "\t\t";
                     continue;
                 }
@@ -133,15 +146,20 @@ public:
                 for(const vector<rule*>& v : vec) {
                     for (rule *r: v) {
                         cout << r->name;
+                        outputFile << r->name;
+                        // we can add space between each rule if wanted
                         dist -= r->name.size();
                     }
                     if(vec.size() > 1) {
-                        cout << ",";
+                        cout << "-";
+                        outputFile << "-";
                         dist--;
                     }
                 }
-                for(int i = 0; i < dist; i++)
+                outputFile << "\t";
+                for(int i = 0; i < dist; i++) {
                     cout << " ";
+                }
             }
         }
         if(isFailed){

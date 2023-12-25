@@ -1,0 +1,17 @@
+	id	;	int	float	if	(	)	{	}	else	while	=	relop	addop	mulop	num	+	-	
+STATEMENT_LIST	STATEMENTSTATEMENT_LIST2	Error	STATEMENTSTATEMENT_LIST2	STATEMENTSTATEMENT_LIST2	STATEMENTSTATEMENT_LIST2	Error	Error	Error	Error	Error	STATEMENTSTATEMENT_LIST2	Error	Error	Error	Error	Error	Error	Error	
+STATEMENT	ASSIGNMENT	Error	DECLARATION	DECLARATION	IF	Error	Error	Error	Sync	Error	WHILE	Error	Error	Error	Error	Error	Error	Error	
+STATEMENT_LIST2	STATEMENTSTATEMENT_LIST2	Error	STATEMENTSTATEMENT_LIST2	STATEMENTSTATEMENT_LIST2	STATEMENTSTATEMENT_LIST2	Error	Error	Error	Error	Error	STATEMENTSTATEMENT_LIST2	Error	Error	Error	Error	Error	Error	Error	
+DECLARATION	Sync	Error	PRIMITIVE_TYPEid;	PRIMITIVE_TYPEid;	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	
+IF	Sync	Error	Sync	Sync	if(EXPRESSION){STATEMENT}else{STATEMENT}	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	
+WHILE	Sync	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	while(EXPRESSION){STATEMENT}	Error	Error	Error	Error	Error	Error	Error	
+ASSIGNMENT	id=EXPRESSION;	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	
+PRIMITIVE_TYPE	Sync	Error	int	float	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	
+EXPRESSION	SIMPLE_EXPRESSIONEXPRESSION2	Sync	Error	Error	Error	SIMPLE_EXPRESSIONEXPRESSION2	Sync	Error	Error	Error	Error	Error	Error	Error	Error	SIMPLE_EXPRESSIONEXPRESSION2	SIMPLE_EXPRESSIONEXPRESSION2	SIMPLE_EXPRESSIONEXPRESSION2	
+SIMPLE_EXPRESSION	TERMSIMPLE_EXPRESSION2	Sync	Error	Error	Error	TERMSIMPLE_EXPRESSION2	Sync	Error	Error	Error	Error	Error	Sync	Error	Error	TERMSIMPLE_EXPRESSION2	SIGNTERMSIMPLE_EXPRESSION2	SIGNTERMSIMPLE_EXPRESSION2	
+EXPRESSION2	Error	eps	Error	Error	Error	Error	eps	Error	Error	Error	Error	Error	relopSIMPLE_EXPRESSION	Error	Error	Error	Error	Error	
+TERM	FACTORTERM2	Sync	Error	Error	Error	FACTORTERM2	Sync	Error	Error	Error	Error	Error	Sync	Sync	Error	FACTORTERM2	Error	Error	
+SIMPLE_EXPRESSION2	Error	eps	Error	Error	Error	Error	eps	Error	Error	Error	Error	Error	eps	addopTERMSIMPLE_EXPRESSION2	Error	Error	Error	Error	
+SIGN	Sync	Error	Error	Error	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Error	Error	Sync	+	-	
+FACTOR	id	Sync	Error	Error	Error	(EXPRESSION)	Sync	Error	Error	Error	Error	Error	Sync	Sync	Sync	num	Error	Error	
+TERM2	Error	eps	Error	Error	Error	Error	eps	Error	Error	Error	Error	Error	eps	eps	mulopFACTORTERM2	Error	Error	Error	
