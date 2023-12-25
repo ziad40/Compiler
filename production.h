@@ -23,12 +23,21 @@ public:
     set<rule*> follow;
     vector<vector<rule*>> productions;
     map<rule*, vector<rule*>> first_to_expression;
-
-    rule(string name, bool terminal){
+    rule(string& name, bool terminal){
         this->terminal = terminal;
         this->name = name;
+        this->epsilon = false;
+        has_epsilon_first = false;
+        first_found = false;
     }
-    void add_productions(const vector<rule*> p){
+    rule(){
+        this->epsilon = true;
+        this->terminal = true;
+        this->name = "epsilon";
+        has_epsilon_first = false;
+        first_found = false;
+    }
+    void add_productions(const vector<rule*>& p){
         this->productions.push_back(p);
     }
 
@@ -40,9 +49,10 @@ public:
                 this -> first.insert(this);
             }
             else{
-                //go through all productes and if they are non-terminals get their first otherwise the terminal is the first
+
+                //go through all products and if they are non-terminals get their first otherwise the terminal is the first
                 for(auto p: this->productions){
-                    //recursivly calculate the first of all needed productions 
+                    //recursively calculate the first of all needed productions
                     if(p[0]-> first.size() == 0){
                         p[0] -> get_first();
                     }
@@ -112,7 +122,6 @@ public:
                             for(int j = index+1; j < v.size(); j++){
                                 follow_rule &= v[j]->has_epsilon_first;
                             }
-
                             if(follow_rule){
                                 this->follow.insert(p->follow.begin(), p->follow.end());
                             }
