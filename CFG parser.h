@@ -102,6 +102,8 @@ public:
         }
         string s = "$";
         productions[0]->follow.insert(new rule(s, true));
+        Terminals.insert(new rule(s, true));
+        NonTerminal.insert(table[productions[0]->name]);
     }
 };
 #endif //PROJECT_CFG_PARSER_H

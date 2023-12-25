@@ -257,8 +257,6 @@ private:
         }
         routing_nfa = utilities::or_all_NFAs(all_nfa);
     }
-
-
 };
 
 
