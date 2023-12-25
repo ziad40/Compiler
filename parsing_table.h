@@ -62,7 +62,8 @@ public:
 
             if(has_epsilon_rule(non_terminal)){
                 vector<rule*> vec;
-                rule* eps_rule = new rule("eps", true);
+                string name = "eps";
+                rule* eps_rule = new rule(name, true);
                 eps_rule->epsilon = true;
                 vec.push_back(eps_rule);
                 for(rule* follow_terminal : non_terminal->follow){
