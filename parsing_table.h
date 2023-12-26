@@ -12,8 +12,8 @@ class parsing_table{
 public:
     set<rule*> NT;
     set<rule*> T;
-    map<rule*, map<rule*, vector<vector<rule*>>>> parsing_map;
-    map<rule*, map<rule*, string>> status_map;
+    map<rule*, map<string, vector<vector<rule*>>>> parsing_map;
+    map<rule*, map<string, string>> status_map;
 
     bool isFailed;
 
@@ -24,7 +24,7 @@ public:
 
         for(rule* non_terminal : this->NT) {
             for(rule* terminal : this->T){
-                status_map[non_terminal][terminal] = "Error";
+                status_map[non_terminal][terminal->name] = "Error";
             }
         }
     }
@@ -54,27 +54,27 @@ public:
                 }
                 vector<rule*> exp = non_terminal->first_to_expression[first_terminal];
                 // iCtSE
-                if(!parsing_map[non_terminal][first_terminal].empty()) {
+                if(!parsing_map[non_terminal][first_terminal->name].empty()) {
                     isFailed = true;
                 }
-                parsing_map[non_terminal][first_terminal].push_back(exp);
-                status_map[non_terminal][first_terminal] = "Production";
+                parsing_map[non_terminal][first_terminal->name].push_back(exp);
+                status_map[non_terminal][first_terminal->name] = "Production";
 
                 if(has_epsilon_first(exp)){
                     for(rule* follow_terminal : non_terminal->follow){
-                        if(!parsing_map[non_terminal][first_terminal].empty()){
+                        if(!parsing_map[non_terminal][first_terminal->name].empty()){
                             isFailed = true;
                         }
-                        parsing_map[non_terminal][follow_terminal].push_back(exp);
-                        status_map[non_terminal][follow_terminal] = "Production";
+                        parsing_map[non_terminal][follow_terminal->name].push_back(exp);
+                        status_map[non_terminal][follow_terminal->name] = "Production";
 
                     }
                 }
 
                 // add sync
                 for(rule* follow_terminal : non_terminal->follow){
-                    if(status_map[non_terminal][follow_terminal] != "Production")
-                        status_map[non_terminal][follow_terminal] = "Sync";
+                    if(status_map[non_terminal][follow_terminal->name] != "Production")
+                        status_map[non_terminal][follow_terminal->name] = "Sync";
                 }
             }
 
@@ -85,11 +85,11 @@ public:
                 eps_rule->epsilon = true;
                 vec.push_back(eps_rule);
                 for(rule* follow_terminal : non_terminal->follow){
-                    if(!parsing_map[non_terminal][follow_terminal].empty()){
+                    if(!parsing_map[non_terminal][follow_terminal->name].empty()){
                         isFailed = true;
                     }
-                    parsing_map[non_terminal][follow_terminal].push_back(vec);
-                    status_map[non_terminal][follow_terminal] = "Production";
+                    parsing_map[non_terminal][follow_terminal->name].push_back(vec);
+                    status_map[non_terminal][follow_terminal->name] = "Production";
                 }
             }
         }
@@ -140,17 +140,17 @@ public:
             for(int i = 0; i < initial_dist; i++)
                 cout << " ";
             outputFile << non_terminal->name << "\t";
-            map<rule*, vector<vector<rule*>>> map = entry.second;
+            map<string, vector<vector<rule*>>> map = entry.second;
             for(rule* terminal : T){
                 int dist = 52;
 //                if(map[terminal].empty()){
-                if(status_map[non_terminal][terminal] != "Production"){
-                    cout << status_map[non_terminal][terminal];
-                    outputFile << status_map[non_terminal][terminal] << "\t";
+                if(status_map[non_terminal][terminal->name] != "Production"){
+                    cout << status_map[non_terminal][terminal->name];
+                    outputFile << status_map[non_terminal][terminal->name] << "\t";
                     cout << "\t\t\t\t\t\t\t\t\t\t\t\t";
                     continue;
                 }
-                vector<vector<rule*>> vec = map[terminal];
+                vector<vector<rule*>> vec = map[terminal->name];
                 for(const vector<rule*>& v : vec) {
                     for (rule *r: v) {
                         cout << r->name;
