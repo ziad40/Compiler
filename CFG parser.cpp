@@ -2,7 +2,7 @@
 // Created by zizoa on 12/24/2023.
 //
 #include "CFG parser.h"
-#include "parsing_table.h"
+//#include "parsing_table.h"
 #include "cfg_input_parser.h"
 
 cfg_input_parser prepare_parsing_table(){

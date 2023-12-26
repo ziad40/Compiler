@@ -33,7 +33,7 @@ void Parser::check_spaces(Node*& starting){
     }else if (!current_node_acceptance && token.size() != 0){
         string temp(token.begin(), token.end());
         output.append("error: ");
-        output.append(temp);
+        output.append(temp);  // temp to phase 2 -------------------------------
         output.append("\n");
         initialize(starting);
     }
@@ -44,13 +44,13 @@ void Parser::check_brackets(Node*& starting, char c){
         print_node_type(current_node);
         initialize(starting);
     }
-    output+= c;
+    output+= c;      // c to phase 2 -------------------------------
     output.append("\n");
 }
 
 void Parser::check_symbols(Node*& starting, char c){
     print_node_type(current_node);
-    output+= c;
+    output+= c;         // c to phase 2 -------------------------------
     output.append("\n");
     initialize(starting);
 }
@@ -59,7 +59,7 @@ void Parser::print_node_type(Node*& node){
     string temp(token.begin(), token.end());
     for (auto keyword: keywords){
         if (temp == keyword){
-            output.append(keyword);
+            output.append(keyword);   // keyword to phase 2 -------------------------------
             output.append("\n");
             return;
         }
@@ -68,26 +68,26 @@ void Parser::print_node_type(Node*& node){
         if (type != "" && type != "digit" && type != "digits" && type != "letter"){
             if (type == "addop"){
                 if ((temp == "+" || temp == "-")){
-                    output.append(type);
+                    output.append(type);    // type to phase 2 -------------------------------
                     output.append("\n");
                     return;
                 }
             }
             else if (type == "mulop"){
                 if (temp == "*" || temp == "/"){
-                    output.append(type);
+                    output.append(type);      // type to phase 2 -------------------------------
                     output.append("\n");
                     return;
                 }
             }else if (type == "assign"){
                 if (temp == "="){
-                    output.append(type);
+                    output.append(type);     // type to phase 2 -------------------------------
                     output.append("\n");
                     return;
                 }
             }
             else{
-                output.append(type);
+                output.append(type);         // type to phase 2 -------------------------------
                 output.append("\n");
                 return;
             }
