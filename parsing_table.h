@@ -121,34 +121,44 @@ public:
         }
         cout << endl;
         outputFile << "\t";
-        cout << "\t\t\t";
+        cout << "\t\t\t\t\t\t\t\t\t\t\t\t\t";
         for(rule* terminal : T) {
-            cout << terminal->name << "\t\t\t";
+            int terminal_dist = 52;
+            cout << terminal->name;
+            terminal_dist -= terminal->name.size();
+            for(int i = 0; i < terminal_dist; i++)
+                cout << " ";
             outputFile << terminal->name << "\t";
         }
         for (auto &entry : parsing_map) {
+            int initial_dist = 52;
             cout << endl;
             outputFile << endl;
             rule* non_terminal = entry.first;
-            cout << non_terminal->name << "\t\t\t";
+            cout << non_terminal->name;
+            initial_dist -= non_terminal->name.size();
+            for(int i = 0; i < initial_dist; i++)
+                cout << " ";
             outputFile << non_terminal->name << "\t";
             map<rule*, vector<vector<rule*>>> map = entry.second;
             for(rule* terminal : T){
-                int dist = 12;
+                int dist = 52;
 //                if(map[terminal].empty()){
                 if(status_map[non_terminal][terminal] != "Production"){
                     cout << status_map[non_terminal][terminal];
                     outputFile << status_map[non_terminal][terminal] << "\t";
-                    cout << "\t\t";
+                    cout << "\t\t\t\t\t\t\t\t\t\t\t\t";
                     continue;
                 }
                 vector<vector<rule*>> vec = map[terminal];
                 for(const vector<rule*>& v : vec) {
                     for (rule *r: v) {
                         cout << r->name;
+                        cout << " ";
                         outputFile << r->name;
+                        outputFile << " ";
                         // we can add space between each rule if wanted
-                        dist -= r->name.size();
+                        dist -= r->name.size()+1;
                     }
                     if(vec.size() > 1) {
                         cout << "-";
@@ -163,10 +173,10 @@ public:
             }
         }
         if(isFailed){
-            cout << "\n" << "Failed, Ambiguous Grammar";
+            cout << "\n\n" << "Failed, Ambiguous Grammar";
         }
         else{
-            cout << "\n" << "Done, Not Ambiguous Grammar";
+            cout << "\n\n" << "Done, Not Ambiguous Grammar";
         }
     }
 };

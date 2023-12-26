@@ -13,8 +13,23 @@ int main(int argc, char* argv[]){
         r->get_first();
         r->get_follow(prod);
     }
+
     parsing_table pt = parsing_table(ob.NonTerminal, ob.Terminals);
     pt.get_parsing_table();
+    cout << "\n\n";
+    for(rule* r : ob.NonTerminal){
+        cout << r->name << ": " << endl;
+        cout << "first: ";
+        for(rule* first : r->first){
+            cout << first->name << " ";
+        }
+        cout << "\nfollow: ";
+        for(rule* follow : r->follow){
+            cout << follow->name << " ";
+        }
+        cout << "\n\n";
+    }
+
     pt.print_parsing_table();
     cout << "\nDone";
     cout << "\ncompiled successfully" << endl;
