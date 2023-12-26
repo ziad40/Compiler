@@ -256,7 +256,7 @@ void example2(){
     cout << endl;
 }
 
-int main() {
-    example2();
-    return 0;
-}
+//int main() {
+//    example2();
+//    return 0;
+//}
