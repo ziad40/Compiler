@@ -101,8 +101,10 @@ public:
             }
         }
         string s = "$";
-        productions[0]->follow.insert(new rule(s, true));
-        Terminals.insert(new rule(s, true));
+        rule* dollar = new rule(s, true);
+        table[dollar->name] = dollar;
+        productions[0]->follow.insert(table[dollar->name]);
+        Terminals.insert(table[dollar->name]);
         NonTerminal.insert(table[productions[0]->name]);
     }
 };
