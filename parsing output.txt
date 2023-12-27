@@ -6,9 +6,7 @@ DECLARATION -> PRIMITIVE_TYPE id ;
 PRIMITIVE_TYPE -> int 
 STATEMENT_LIST2 -> STATEMENT STATEMENT_LIST2 
 STATEMENT -> ASSIGNMENT 
-ASSIGNMENT -> id = EXPRESSION ; 
-Error: top stack rule = != token assign, Stack Pop =
-Error: parsing table[EXPRESSION][assign] is Empty, Discard input token assign
+ASSIGNMENT -> id assign EXPRESSION ; 
 EXPRESSION -> SIMPLE_EXPRESSION EXPRESSION2 
 SIMPLE_EXPRESSION -> TERM SIMPLE_EXPRESSION2 
 TERM -> FACTOR TERM2 
@@ -32,9 +30,7 @@ FACTOR -> num
 TERM2 -> eps 
 SIMPLE_EXPRESSION2 -> eps 
 STATEMENT -> ASSIGNMENT 
-ASSIGNMENT -> id = EXPRESSION ; 
-Error: top stack rule = != token assign, Stack Pop =
-Error: parsing table[EXPRESSION][assign] is Empty, Discard input token assign
+ASSIGNMENT -> id assign EXPRESSION ; 
 EXPRESSION -> SIMPLE_EXPRESSION EXPRESSION2 
 SIMPLE_EXPRESSION -> TERM SIMPLE_EXPRESSION2 
 TERM -> FACTOR TERM2 

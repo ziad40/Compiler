@@ -1,4 +1,4 @@
-	id	;	int	float	if	(	)	{	}	else	while	=	relop	addop	mulop	num	+	-	$	
+	id	;	int	float	if	(	)	{	}	else	while	assign	relop	addop	mulop	num	+	-	$	
 METHOD_BODY	STATEMENT_LIST 	Error	STATEMENT_LIST 	STATEMENT_LIST 	STATEMENT_LIST 	Error	Error	Error	Error	Error	STATEMENT_LIST 	Error	Error	Error	Error	Error	Error	Error	Sync	
 STATEMENT_LIST	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	Sync	
 STATEMENT	ASSIGNMENT 	Error	DECLARATION 	DECLARATION 	IF 	Error	Error	Error	Sync	Error	WHILE 	Error	Error	Error	Error	Error	Error	Error	Sync	
@@ -6,7 +6,7 @@ STATEMENT_LIST2	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STAT
 DECLARATION	Sync	Error	PRIMITIVE_TYPE id ; 	PRIMITIVE_TYPE id ; 	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
 IF	Sync	Error	Sync	Sync	if ( EXPRESSION ) { STATEMENT } else { STATEMENT } 	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
 WHILE	Sync	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	while ( EXPRESSION ) { STATEMENT } 	Error	Error	Error	Error	Error	Error	Error	Sync	
-ASSIGNMENT	id = EXPRESSION ; 	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
+ASSIGNMENT	id assign EXPRESSION ; 	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
 PRIMITIVE_TYPE	Sync	Error	int 	float 	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	
 EXPRESSION	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	Error	Error	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	Error	
 SIMPLE_EXPRESSION	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	Error	Error	Sync	Error	Error	TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	Error	
