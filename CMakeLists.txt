@@ -23,4 +23,5 @@ add_executable(project
 #        "CFG parser.cpp"
         parsing_table.h
         parsing_table_test.cpp
-        production_test.cpp cfg_input_parser.h)
+        production_test.cpp
+        cfg_input_parser.h)

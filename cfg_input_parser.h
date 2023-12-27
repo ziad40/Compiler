@@ -33,7 +33,7 @@ public:
             exit(1);
         }
 //        myFile << token << endl;
-        cout << token << " ";
+//        cout << token << " ";
 
         if(stack.empty()){
             // error, stack empty although we still have input
@@ -43,16 +43,18 @@ public:
 
         rule* top_rule = stack.top();
 
-        if(token == "$"){
+        if(token == "$" && top_rule->name == "$"){
             // handle this case, input end
             stack.pop();
-            if(top_rule->name == "$"){
-                cout << "Parsed Successfully" << endl;
-            }
-            else{
-                cout << "error, stack still have rules at input end" << endl;
-                exit(1);
-            }
+//            if(top_rule->name == "$"){
+                cout << "\nParsed Successfully" << endl;
+                myFile << "Parsed Successfully" << endl;
+                return;
+//            }
+//            else{
+//                cout << "error, stack still have rules at input end" << endl;
+//                exit(1);
+//            }
         }
 
         if(top_rule->terminal){
@@ -62,28 +64,41 @@ public:
             }
             else{
                 // error top rule != token, pop input token (return)
-                cout << "error top rule != token" << endl;
+                myFile << "Error: top stack rule " << top_rule->name <<  " != token " << token << ", Stack Pop " << top_rule->name << endl;
                 stack.pop();
                 parse_lexicial(token);
             }
         }
         else{ // top rule NT
             if(status_map[top_rule][token] == "Sync"){
+//                cout << "Sync";
+                myFile << "Error: parsing table[" << top_rule->name << "][" << token << "] is Sync, Discard input token " << token << endl;
                 stack.pop();
                 parse_lexicial(token);
                 return;
             }
             if(status_map[top_rule][token] != "Production"){
                 // empty entry either sync or error
-                cout << "not found" << " ";
+                myFile << "Error: parsing table[" << top_rule->name << "][" << token << "] is Empty, Discard input token " << token << endl;
                 return;
             }
             stack.pop();
-            for(rule* sub : *parsing_map[top_rule][token].begin()){
-                stack.push(sub);
+            vector<rule*> vec = *parsing_map[top_rule][token].begin();
+//            vec.reserve(vec.begin());
+//            for(rule* sub : vec){
+            myFile << top_rule->name << " -> ";
+            for(int i = 0; i < vec.size(); i++){
+                rule* sub = vec[i];
                 myFile << sub->name << " ";
             }
+            for(int i = vec.size()-1; i >= 0; i--){
+                rule* sub = vec[i];
+                if(sub->epsilon)
+                    continue;
+                stack.push(sub);
+            }
             myFile << endl;
+            parse_lexicial(token);
         }
     }
 };

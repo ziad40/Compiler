@@ -1,18 +1,3 @@
-	id	;	int	float	if	(	)	{	}	else	while	=	relop	addop	mulop	num	+	-	$	
-METHOD_BODY	STATEMENT_LIST 	Error	STATEMENT_LIST 	STATEMENT_LIST 	STATEMENT_LIST 	Error	Error	Error	Error	Error	STATEMENT_LIST 	Error	Error	Error	Error	Error	Error	Error	Sync	
-STATEMENT_LIST	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	Sync	
-STATEMENT	ASSIGNMENT 	Error	DECLARATION 	DECLARATION 	IF 	Error	Error	Error	Sync	Error	WHILE 	Error	Error	Error	Error	Error	Error	Error	Sync	
-STATEMENT_LIST2	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	eps 	
-DECLARATION	Sync	Error	PRIMITIVE_TYPE id ; 	PRIMITIVE_TYPE id ; 	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
-IF	Sync	Error	Sync	Sync	if ( EXPRESSION ) { STATEMENT } else { STATEMENT } 	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
-WHILE	Sync	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	while ( EXPRESSION ) { STATEMENT } 	Error	Error	Error	Error	Error	Error	Error	Sync	
-ASSIGNMENT	id = EXPRESSION ; 	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
-PRIMITIVE_TYPE	Sync	Error	int 	float 	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	
-EXPRESSION	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	Error	Error	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	Error	
-SIMPLE_EXPRESSION	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	Error	Error	Sync	Error	Error	TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	Error	
-EXPRESSION2	Error	eps 	Error	Error	Error	Error	eps 	Error	Error	Error	Error	Error	relop SIMPLE_EXPRESSION 	Error	Error	Error	Error	Error	Error	
-TERM	FACTOR TERM2 	Sync	Error	Error	Error	FACTOR TERM2 	Sync	Error	Error	Error	Error	Error	Sync	Sync	Error	FACTOR TERM2 	Error	Error	Error	
-SIMPLE_EXPRESSION2	Error	eps 	Error	Error	Error	Error	eps 	Error	Error	Error	Error	Error	eps 	addop TERM SIMPLE_EXPRESSION2 	Error	Error	Error	Error	Error	
-SIGN	Sync	Error	Error	Error	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Error	Error	Sync	+ 	- 	Error	
-FACTOR	id 	Sync	Error	Error	Error	( EXPRESSION ) 	Sync	Error	Error	Error	Error	Error	Sync	Sync	Sync	num 	Error	Error	Error	
-TERM2	Error	eps 	Error	Error	Error	Error	eps 	Error	Error	Error	Error	Error	eps 	eps 	mulop FACTOR TERM2 	Error	Error	Error	Error	
+	$	c	d	e	a	b	
+S	eps 	A b S 	Error	e 	A b S 	Error	
+A	Error	c A d 	Sync	Error	a 	Sync	
