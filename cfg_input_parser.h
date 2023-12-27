@@ -22,6 +22,8 @@ public:
         rule* dollar = new rule(name,true);
         stack.push(dollar);
         stack.push(start);
+        ofstream myFile("../parsing output.txt");
+        myFile << start->name << endl;
     }
 
     void parse_lexicial(string token){
@@ -30,8 +32,8 @@ public:
             cout << "Error: Unable to open the file." << endl;
             exit(1);
         }
-        myFile << token << " ";
-
+//        myFile << token << endl;
+        cout << token << " ";
 
         if(stack.empty()){
             // error, stack empty although we still have input
@@ -59,20 +61,29 @@ public:
                 return;
             }
             else{
-                // error top rule != token
+                // error top rule != token, pop input token (return)
                 cout << "error top rule != token" << endl;
+                stack.pop();
+                parse_lexicial(token);
             }
         }
         else{ // top rule NT
+            if(status_map[top_rule][token] == "Sync"){
+                stack.pop();
+                parse_lexicial(token);
+                return;
+            }
             if(status_map[top_rule][token] != "Production"){
                 // empty entry either sync or error
-                cout << "not found";
-                exit(1);
+                cout << "not found" << " ";
+                return;
             }
             stack.pop();
             for(rule* sub : *parsing_map[top_rule][token].begin()){
                 stack.push(sub);
+                myFile << sub->name << " ";
             }
+            myFile << endl;
         }
     }
 };

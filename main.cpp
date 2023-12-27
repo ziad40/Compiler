@@ -26,7 +26,7 @@ void Parser::initialize(Node*& starting){
     current_node_acceptance = current_node->acceptance;
 }
 
-void Parser::check_spaces(Node*& starting, cfg_input_parser cfgInputParser){
+void Parser::check_spaces(Node*& starting, cfg_input_parser* cfgInputParser){
     if(current_node_acceptance){
         print_node_type(current_node,cfgInputParser);
         initialize(starting);
@@ -34,38 +34,38 @@ void Parser::check_spaces(Node*& starting, cfg_input_parser cfgInputParser){
         string temp(token.begin(), token.end());
         output.append("error: ");
         output.append(temp);  // temp to phase 2 -------------------------------
-        cfgInputParser.parse_lexicial(temp);
+        cfgInputParser->parse_lexicial(temp);
         output.append("\n");
         initialize(starting);
     }
 }
 
-void Parser::check_brackets(Node*& starting, char c, cfg_input_parser cfgInputParser){
+void Parser::check_brackets(Node*& starting, char c, cfg_input_parser* cfgInputParser){
     if(current_node_acceptance){
         print_node_type(current_node,cfgInputParser);
         initialize(starting);
     }
     output+= c;      // c to phase 2 -------------------------------
     string s = string(1,c);
-    cfgInputParser.parse_lexicial(s);
+    cfgInputParser->parse_lexicial(s);
     output.append("\n");
 }
 
-void Parser::check_symbols(Node*& starting, char c, cfg_input_parser cfgInputParser){
+void Parser::check_symbols(Node*& starting, char c, cfg_input_parser* cfgInputParser){
     print_node_type(current_node,cfgInputParser);
     output+= c;         // c to phase 2 -------------------------------
     string s = string(1,c);
-    cfgInputParser.parse_lexicial(s);
+    cfgInputParser->parse_lexicial(s);
     output.append("\n");
     initialize(starting);
 }
 
-void Parser::print_node_type(Node*& node, cfg_input_parser cfgInputParser){
+void Parser::print_node_type(Node*& node, cfg_input_parser* cfgInputParser){
     string temp(token.begin(), token.end());
     for (auto keyword: keywords){
         if (temp == keyword){
             output.append(keyword);   // keyword to phase 2 -------------------------------
-            cfgInputParser.parse_lexicial(keyword);
+            cfgInputParser->parse_lexicial(keyword);
             output.append("\n");
             return;
         }
@@ -75,7 +75,7 @@ void Parser::print_node_type(Node*& node, cfg_input_parser cfgInputParser){
             if (type == "addop"){
                 if ((temp == "+" || temp == "-")){
                     output.append(type);    // type to phase 2 -------------------------------
-                    cfgInputParser.parse_lexicial(type);
+                    cfgInputParser->parse_lexicial(type);
                     output.append("\n");
                     return;
                 }
@@ -83,21 +83,21 @@ void Parser::print_node_type(Node*& node, cfg_input_parser cfgInputParser){
             else if (type == "mulop"){
                 if (temp == "*" || temp == "/"){
                     output.append(type);      // type to phase 2 -------------------------------
-                    cfgInputParser.parse_lexicial(type);
+                    cfgInputParser->parse_lexicial(type);
                     output.append("\n");
                     return;
                 }
             }else if (type == "assign"){
                 if (temp == "="){
                     output.append(type);     // type to phase 2 -------------------------------
-                    cfgInputParser.parse_lexicial(type);
+                    cfgInputParser->parse_lexicial(type);
                     output.append("\n");
                     return;
                 }
             }
             else{
                 output.append(type);         // type to phase 2 -------------------------------
-                cfgInputParser.parse_lexicial(type);
+                cfgInputParser->parse_lexicial(type);
                 output.append("\n");
                 return;
             }
@@ -112,7 +112,7 @@ void Parser::write_output_file() const{
     file.close();
 }
 
-void Parser::parse(vector<Node *> dfa, string path, Node* start_point, cfg_input_parser cfgInputParser){
+void Parser::parse(vector<Node *> dfa, string path, Node* start_point, cfg_input_parser* cfgInputParser){
     string file = read_java_file(path);
     initialize(start_point);
     bool not_more = true;
@@ -169,7 +169,7 @@ void Parser::parse(vector<Node *> dfa, string path, Node* start_point, cfg_input
             output.append("error: ");
             output += c;
             string s = string(1,c);
-            cfgInputParser.parse_lexicial(s);
+            cfgInputParser->parse_lexicial(s);
             output.append("\n");
         }
         if(i == file.size() - 1 && token.size() != 0 && step_taken && current_node_acceptance){
@@ -177,7 +177,7 @@ void Parser::parse(vector<Node *> dfa, string path, Node* start_point, cfg_input
         }
         i++;
     }
-    cfgInputParser.parse_lexicial("$");
+    cfgInputParser->parse_lexicial("$");
     write_output_file();
 }
 
@@ -214,7 +214,7 @@ int main(int argc, char* argv[])
     //vector<Node*> dfa = lexical_analysis(relative_path, r);
     string file = "../Main.java";
     Parser parser(r);
-    parser.parse(nn, file, &dfa_2.DFA_start_node,cfgInputParser);
+    parser.parse(nn, file, &dfa_2.DFA_start_node,&cfgInputParser);
     cout << "\nDone Done";
     return 0;
 }
