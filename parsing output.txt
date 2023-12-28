@@ -15,6 +15,20 @@ TERM2 -> eps
 SIMPLE_EXPRESSION2 -> eps 
 EXPRESSION2 -> eps 
 STATEMENT_LIST2 -> STATEMENT STATEMENT_LIST2 
+STATEMENT -> ASSIGNMENT 
+ASSIGNMENT -> id assign EXPRESSION ; 
+EXPRESSION -> SIMPLE_EXPRESSION EXPRESSION2 
+SIMPLE_EXPRESSION -> TERM SIMPLE_EXPRESSION2 
+TERM -> FACTOR TERM2 
+FACTOR -> id 
+TERM2 -> eps 
+SIMPLE_EXPRESSION2 -> addop TERM SIMPLE_EXPRESSION2 
+TERM -> FACTOR TERM2 
+FACTOR -> num 
+TERM2 -> eps 
+SIMPLE_EXPRESSION2 -> eps 
+EXPRESSION2 -> eps 
+STATEMENT_LIST2 -> STATEMENT STATEMENT_LIST2 
 STATEMENT -> IF 
 IF -> if ( EXPRESSION ) { STATEMENT } else { STATEMENT } 
 EXPRESSION -> SIMPLE_EXPRESSION EXPRESSION2 
@@ -40,7 +54,7 @@ SIMPLE_EXPRESSION2 -> eps
 EXPRESSION2 -> eps 
 Error: top stack rule else != token $, Stack Pop else
 Error: top stack rule { != token $, Stack Pop {
-Error: parsing table[STATEMENT][$] is Sync, Discard input token $
+Error: parsing table[STATEMENT][$] is Sync, Stack Pop STATEMENT
 Error: top stack rule } != token $, Stack Pop }
 STATEMENT_LIST2 -> eps 
 Parsed Successfully

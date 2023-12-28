@@ -72,7 +72,7 @@ public:
         else{ // top rule NT
             if(status_map[top_rule][token] == "Sync"){
 //                cout << "Sync";
-                myFile << "Error: parsing table[" << top_rule->name << "][" << token << "] is Sync, Discard input token " << token << endl;
+                myFile << "Error: parsing table[" << top_rule->name << "][" << token << "] is Sync, Stack Pop " << top_rule->name << endl;
                 stack.pop();
                 parse_lexicial(token);
                 return;

@@ -1,4 +1,4 @@
-	id	;	int	float	if	(	)	{	}	else	while	assign	relop	addop	mulop	num	+	-	$
+	id	;	int	float	if	(	)	{	}	else	while	assign	relop	addop	mulop	num	+	-	$	
 METHOD_BODY	STATEMENT_LIST 	Error	STATEMENT_LIST 	STATEMENT_LIST 	STATEMENT_LIST 	Error	Error	Error	Error	Error	STATEMENT_LIST 	Error	Error	Error	Error	Error	Error	Error	Sync	
 STATEMENT_LIST	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	Sync	
 STATEMENT	ASSIGNMENT 	Error	DECLARATION 	DECLARATION 	IF 	Error	Error	Error	Sync	Error	WHILE 	Error	Error	Error	Error	Error	Error	Error	Sync	

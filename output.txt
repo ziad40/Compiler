@@ -5,6 +5,12 @@ id
 assign
 num
 ;
+id
+assign
+id
+addop
+num
+;
 if
 (
 id
