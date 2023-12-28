@@ -1,18 +1,18 @@
-	mulop	else	addop	)	while	{	relop	}	num	=	+	-	$	id	;	int	float	if	(	
-METHOD_BODY	Error	Error	Error	Error	STATEMENT_LIST 	Error	Error	Error	Error	Error	Error	Error	Sync	STATEMENT_LIST 	Error	STATEMENT_LIST 	STATEMENT_LIST 	STATEMENT_LIST 	Error	
-STATEMENT_LIST	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	Sync	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	
-STATEMENT	Error	Error	Error	Error	WHILE 	Error	Error	Sync	Error	Error	Error	Error	Sync	ASSIGNMENT 	Error	DECLARATION 	DECLARATION 	IF 	Error	
-STATEMENT_LIST2	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	eps 	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	
-EXPRESSION	Error	Error	Error	Sync	Error	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	Error	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	Error	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	
-TERM	Error	Error	Sync	Sync	Error	Error	Sync	Error	FACTOR TERM2 	Error	Error	Error	Error	FACTOR TERM2 	Sync	Error	Error	Error	FACTOR TERM2 	
-SIGN	Error	Error	Error	Error	Error	Error	Error	Error	Sync	Error	+ 	- 	Error	Sync	Error	Error	Error	Error	Sync	
-EXPRESSION2	Error	Error	Error	eps 	Error	Error	relop SIMPLE_EXPRESSION 	Error	Error	Error	Error	Error	Error	Error	eps 	Error	Error	Error	Error	
-SIMPLE_EXPRESSION2	Error	Error	addop TERM SIMPLE_EXPRESSION2 	eps 	Error	Error	eps 	Error	Error	Error	Error	Error	Error	Error	eps 	Error	Error	Error	Error	
-FACTOR	Sync	Error	Sync	Sync	Error	Error	Sync	Error	num 	Error	Error	Error	Error	id 	Sync	Error	Error	Error	( EXPRESSION ) 	
-TERM2	mulop FACTOR TERM2 	Error	eps 	eps 	Error	Error	eps 	Error	Error	Error	Error	Error	Error	Error	eps 	Error	Error	Error	Error	
-SIMPLE_EXPRESSION	Error	Error	Error	Sync	Error	Error	Sync	Error	TERM SIMPLE_EXPRESSION2 	Error	SIGN TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	Error	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	TERM SIMPLE_EXPRESSION2 	
-DECLARATION	Error	Error	Error	Error	Sync	Error	Error	Sync	Error	Error	Error	Error	Sync	Sync	Error	PRIMITIVE_TYPE id ; 	PRIMITIVE_TYPE id ; 	Sync	Error	
-IF	Error	Error	Error	Error	Sync	Error	Error	Sync	Error	Error	Error	Error	Sync	Sync	Error	Sync	Sync	if ( EXPRESSION ) { STATEMENT } else { STATEMENT } 	Error	
-WHILE	Error	Error	Error	Error	while ( EXPRESSION ) { STATEMENT } 	Error	Error	Sync	Error	Error	Error	Error	Sync	Sync	Error	Sync	Sync	Sync	Error	
-ASSIGNMENT	Error	Error	Error	Error	Sync	Error	Error	Sync	Error	Error	Error	Error	Sync	id = EXPRESSION ; 	Error	Sync	Sync	Sync	Error	
-PRIMITIVE_TYPE	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Sync	Error	int 	float 	Error	Error	
+	id	;	int	float	if	(	)	{	}	else	while	assign	relop	addop	mulop	num	+	-	$
+METHOD_BODY	STATEMENT_LIST 	Error	STATEMENT_LIST 	STATEMENT_LIST 	STATEMENT_LIST 	Error	Error	Error	Error	Error	STATEMENT_LIST 	Error	Error	Error	Error	Error	Error	Error	Sync	
+STATEMENT_LIST	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	Sync	
+STATEMENT	ASSIGNMENT 	Error	DECLARATION 	DECLARATION 	IF 	Error	Error	Error	Sync	Error	WHILE 	Error	Error	Error	Error	Error	Error	Error	Sync	
+STATEMENT_LIST2	STATEMENT STATEMENT_LIST2 	Error	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	STATEMENT STATEMENT_LIST2 	Error	Error	Error	Error	Error	Error	Error	eps 	
+DECLARATION	Sync	Error	PRIMITIVE_TYPE id ; 	PRIMITIVE_TYPE id ; 	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
+IF	Sync	Error	Sync	Sync	if ( EXPRESSION ) { STATEMENT } else { STATEMENT } 	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
+WHILE	Sync	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	while ( EXPRESSION ) { STATEMENT } 	Error	Error	Error	Error	Error	Error	Error	Sync	
+ASSIGNMENT	id assign EXPRESSION ; 	Error	Sync	Sync	Sync	Error	Error	Error	Sync	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Sync	
+PRIMITIVE_TYPE	Sync	Error	int 	float 	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	Error	
+EXPRESSION	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	Sync	Error	Error	Error	Error	Error	Error	Error	Error	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	SIMPLE_EXPRESSION EXPRESSION2 	Error	
+SIMPLE_EXPRESSION	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	TERM SIMPLE_EXPRESSION2 	Sync	Error	Error	Error	Error	Error	Sync	Error	Error	TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	SIGN TERM SIMPLE_EXPRESSION2 	Error	
+EXPRESSION2	Error	eps 	Error	Error	Error	Error	eps 	Error	Error	Error	Error	Error	relop SIMPLE_EXPRESSION 	Error	Error	Error	Error	Error	Error	
+TERM	FACTOR TERM2 	Sync	Error	Error	Error	FACTOR TERM2 	Sync	Error	Error	Error	Error	Error	Sync	Sync	Error	FACTOR TERM2 	Error	Error	Error	
+SIMPLE_EXPRESSION2	Error	eps 	Error	Error	Error	Error	eps 	Error	Error	Error	Error	Error	eps 	addop TERM SIMPLE_EXPRESSION2 	Error	Error	Error	Error	Error	
+SIGN	Sync	Error	Error	Error	Error	Sync	Error	Error	Error	Error	Error	Error	Error	Error	Error	Sync	+ 	- 	Error	
+FACTOR	id 	Sync	Error	Error	Error	( EXPRESSION ) 	Sync	Error	Error	Error	Error	Error	Sync	Sync	Sync	num 	Error	Error	Error	
+TERM2	Error	eps 	Error	Error	Error	Error	eps 	Error	Error	Error	Error	Error	eps 	eps 	mulop FACTOR TERM2 	Error	Error	Error	Error	

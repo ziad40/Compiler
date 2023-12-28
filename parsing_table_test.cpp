@@ -1,16 +1,17 @@
 //#include<iostream>
 //using namespace std;
+//#include "cfg_input_parser.h"
 //#include "production.h"
-//#include "parsing_table.h"
+////#include "parsing_table.h"
 //
 //void example1();
 //void example2();
 //void example3();
 //
 //int main(){
-//    example1();
+////    example1();
 ////    example2();
-////    example3();
+//    example3();
 //    return 0;
 //}
 //
@@ -442,5 +443,12 @@
 //    parsing_table pt = parsing_table(NT, T);
 //    pt.get_parsing_table();
 //    pt.print_parsing_table();
+//
+//    cfg_input_parser cfgInputParser = cfg_input_parser(pt.parsing_map, pt.status_map, *pt.NT.begin());
+//    string example = "aab$";
+////    string example = "ceadb$";
+//    for(char x : example){
+//        cfgInputParser.parse_lexicial(string(1,x));
+//    }
 //    cout << "\nDone";
 //}

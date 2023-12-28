@@ -36,6 +36,6 @@ cfg_input_parser prepare_parsing_table(){
     cout << "\nDone";
     cout << "\ncompiled successfully" << endl;
 
-    cfg_input_parser cfgInputParser = cfg_input_parser(pt.parsing_map, pt.status_map);
+    cfg_input_parser cfgInputParser = cfg_input_parser(pt.parsing_map, pt.status_map, *pt.NT.begin());
     return cfgInputParser;
 }
