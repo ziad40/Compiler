@@ -1,5 +1,5 @@
 # Project Name: Compiler Project - Phases 1 & 2
-## 🛠 Tech Stack
+## Tech Stack
 
 ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![Algorithms](https://img.shields.io/badge/Algorithms-FF6F00?style=for-the-badge&logo=codeforces&logoColor=white)
