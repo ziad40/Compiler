@@ -1,4 +1,9 @@
 # Project Name: Compiler Project - Phases 1 & 2
+## 🛠 Tech Stack
+
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![Algorithms](https://img.shields.io/badge/Algorithms-FF6F00?style=for-the-badge&logo=codeforces&logoColor=white)
+![Compilers](https://img.shields.io/badge/Compilers-4CAF50?style=for-the-badge&logo=llvm&logoColor=white)
 
 ## Overview
 This repository contains the source code and documentation for a team project involving the implementation of two phases of a compiler. The project was a collaborative effort of four team members aimed at building a compiler capable of lexical analysis (Phase 1) and syntax analysis (Phase 2).
